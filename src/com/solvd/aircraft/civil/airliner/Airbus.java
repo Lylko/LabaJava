@@ -1,6 +1,8 @@
-package com.solvd.aircraft.civil;
+package com.solvd.aircraft.civil.airliner;
 
-public class Airbus extends Airliner{
+import com.solvd.aircraft.civil.airliner.Airliner;
+
+public class Airbus extends Airliner {
     public Airbus(){
         setMaxHeight(12);
         setMaxSpeed(860);

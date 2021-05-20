@@ -1,6 +1,8 @@
-package com.solvd.aircraft.civil;
+package com.solvd.aircraft.civil.airliner;
 
-public class Airliner extends Civil{
+import com.solvd.aircraft.civil.Civil;
+
+public class Airliner extends Civil {
 
     private int passengerCap;
 

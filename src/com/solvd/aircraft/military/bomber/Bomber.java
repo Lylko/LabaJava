@@ -1,4 +1,6 @@
-package com.solvd.aircraft.military;
+package com.solvd.aircraft.military.bomber;
+
+import com.solvd.aircraft.military.Military;
 
 public class Bomber extends Military {
 

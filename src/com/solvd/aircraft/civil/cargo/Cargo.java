@@ -1,4 +1,6 @@
-package com.solvd.aircraft.civil;
+package com.solvd.aircraft.civil.cargo;
+
+import com.solvd.aircraft.civil.Civil;
 
 public class Cargo extends Civil {
 

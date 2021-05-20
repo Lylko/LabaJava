@@ -1,6 +1,6 @@
-package com.solvd.aircraft.civil;
+package com.solvd.aircraft.civil.cargo;
 
-public class Beluga extends Cargo{
+public class Beluga extends Cargo {
 
     public Beluga(){
         setMaxHeight(11);

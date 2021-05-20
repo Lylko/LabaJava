@@ -1,6 +1,8 @@
-package com.solvd.aircraft.civil;
+package com.solvd.aircraft.civil.cargo;
 
-public class Globemaster extends Cargo{
+import com.solvd.aircraft.civil.cargo.Cargo;
+
+public class Globemaster extends Cargo {
 
     public Globemaster(){
         setMaxHeight(14);

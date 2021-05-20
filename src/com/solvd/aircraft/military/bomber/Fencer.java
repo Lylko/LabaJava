@@ -1,6 +1,8 @@
-package com.solvd.aircraft.military;
+package com.solvd.aircraft.military.bomber;
 
-public class Fencer extends Bomber{
+import com.solvd.aircraft.military.bomber.Bomber;
+
+public class Fencer extends Bomber {
 
     public Fencer(){
         setMaxHeight(15);

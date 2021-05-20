@@ -1,7 +1,9 @@
 package com.solvd.aircraft;
 
-import com.solvd.aircraft.civil.*;
-import com.solvd.aircraft.military.*;
+import com.solvd.aircraft.civil.airliner.Airliner;
+import com.solvd.aircraft.civil.cargo.Beluga;
+import com.solvd.aircraft.civil.cargo.Cargo;
+import com.solvd.aircraft.military.bomber.Fencer;
 
 public class Executor {
     public static void main(String[] args){

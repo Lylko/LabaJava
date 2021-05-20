@@ -21,6 +21,12 @@ public class Airliner extends Civil{
         return this.passengerCap;
     }
 
+    public void printInfo(){
+        System.out.println("----------------------My own airliner-------------------------");
+        FirstTemplateInfo();
+        SecondTemplateInfo();
+    }
+
     protected void SecondTemplateInfo(){
         System.out.println("Limit of passengers on this airliner is " + getPassengerCap() + " persons");
         System.out.println("------------------------------------------------------------------");

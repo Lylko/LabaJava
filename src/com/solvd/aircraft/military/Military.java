@@ -48,4 +48,6 @@ public abstract class Military {
 
     public abstract int getCrewNum();
 
+    protected abstract void SecondTemplateInfo();
+
 }

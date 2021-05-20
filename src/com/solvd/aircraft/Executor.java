@@ -16,5 +16,11 @@ public class Executor {
         Fencer newPlane5 = new Fencer();
         newPlane5.printInfo();
 
+        Cargo plane = new Cargo(12,12,"Solvd",12);
+        plane.printInfo();
+
+        Airliner plane1 = new Airliner();
+        plane1.printInfo();
+
     }
 }

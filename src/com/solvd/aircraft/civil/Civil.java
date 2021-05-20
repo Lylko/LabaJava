@@ -45,4 +45,7 @@ public abstract class Civil {
         System.out.println("Maximum speed of this aircraft is " + getMaxSpeed() + " km/h");
         System.out.println("Maximum flight altitude of this aircraft is " + getMaxHeight() + " km");
     }
+
+    protected abstract void SecondTemplateInfo();
+
 }

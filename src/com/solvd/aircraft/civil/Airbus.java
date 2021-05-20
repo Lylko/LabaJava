@@ -8,10 +8,6 @@ public class Airbus extends Airliner{
         setCountryName("France");
     }
 
-    public Airbus(int maxSpeed, int maxHeight, String countryName, int passengerCap){
-        super(maxSpeed, maxHeight, countryName, passengerCap);
-    }
-
     public void printInfo(){
         System.out.println("----------------------Airliner 'Airbus'-----------------------");
         FirstTemplateInfo();

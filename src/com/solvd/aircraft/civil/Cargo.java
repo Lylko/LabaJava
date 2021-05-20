@@ -5,7 +5,7 @@ public class Cargo extends Civil {
     private int maxLiftCap;
 
     public Cargo(){
-
+        setCountryName("Solvd");
     }
 
     public Cargo(int maxSpeed, int maxHeight, String countryName, int maxLiftCap){

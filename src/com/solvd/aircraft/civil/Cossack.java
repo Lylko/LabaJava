@@ -9,10 +9,6 @@ public class Cossack extends Cargo {
         setCountryName("USSR");
     }
 
-    public Cossack(int maxSpeed, int maxHeight, String countryName, int maxLiftCap){
-        super(maxSpeed, maxHeight, countryName, maxLiftCap);
-    }
-
     public void printInfo(){
         System.out.println("----------------------Cargo aircraft 'Cossack'--------------------");
         FirstTemplateInfo();

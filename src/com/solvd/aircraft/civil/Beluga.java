@@ -9,10 +9,6 @@ public class Beluga extends Cargo{
         setCountryName("France");
     }
 
-    public Beluga(int maxSpeed, int maxHeight, int maxLiftCap, String countryName){
-        super(maxSpeed, maxHeight, countryName, maxLiftCap);
-    }
-
     public void printInfo(){
         System.out.println("----------------------Cargo aircraft 'Beluga'--------------------");
         FirstTemplateInfo();

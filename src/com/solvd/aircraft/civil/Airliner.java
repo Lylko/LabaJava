@@ -5,7 +5,7 @@ public class Airliner extends Civil{
     private int passengerCap;
 
     public Airliner(){
-
+        setCountryName("Solvd");
     }
 
     public Airliner(int maxSpeed, int maxHeight, String countryName, int passengerCap){

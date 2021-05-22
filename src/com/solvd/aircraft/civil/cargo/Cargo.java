@@ -25,11 +25,11 @@ public class Cargo extends Civil {
 
     public void printInfo(){
         System.out.println("----------------------My own сargo aircraft--------------------");
-        FirstTemplateInfo();
-        SecondTemplateInfo();
+        printFirstTemp();
+        printSecondTemp();
     }
 
-    protected void SecondTemplateInfo(){
+    protected void printSecondTemp(){
         System.out.println("Maximum lifting capacity of this cargo aircraft is " + getMaxLiftCap() + " kg");
         System.out.println("------------------------------------------------------------------");
     }

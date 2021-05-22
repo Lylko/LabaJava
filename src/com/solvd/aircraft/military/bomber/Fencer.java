@@ -17,7 +17,7 @@ public class Fencer extends Bomber {
 
     public void printInfo(){
         System.out.println("----------------------Bomber aircraft 'Fencer'--------------------");
-        FirstTemplateInfo();
-        SecondTemplateInfo();
+        printFirstTemp();
+        printSecondTemp();
     }
 }

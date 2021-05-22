@@ -12,7 +12,7 @@ public class Airbus extends Airliner {
 
     public void printInfo(){
         System.out.println("----------------------Airliner 'Airbus'-----------------------");
-        FirstTemplateInfo();
-        SecondTemplateInfo();
+        printFirstTemp();
+        printSecondTemp();
     }
 }

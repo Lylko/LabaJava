@@ -11,7 +11,7 @@ public class Beluga extends Cargo {
 
     public void printInfo(){
         System.out.println("----------------------Cargo aircraft 'Beluga'--------------------");
-        FirstTemplateInfo();
-        SecondTemplateInfo();
+        printFirstTemp();
+        printSecondTemp();
     }
 }

@@ -40,12 +40,12 @@ public abstract class Civil {
         return this.countryName;
     }
 
-    protected void FirstTemplateInfo(){
+    protected void printFirstTemp(){
         System.out.println("The aircraft was developed in " + getCountryName());
         System.out.println("Maximum speed of this aircraft is " + getMaxSpeed() + " km/h");
         System.out.println("Maximum flight altitude of this aircraft is " + getMaxHeight() + " km");
     }
 
-    protected abstract void SecondTemplateInfo();
+    protected abstract void printSecondTemp();
 
 }

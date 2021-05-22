@@ -13,7 +13,7 @@ public class Cossack extends Cargo {
 
     public void printInfo(){
         System.out.println("----------------------Cargo aircraft 'Cossack'--------------------");
-        FirstTemplateInfo();
-        SecondTemplateInfo();
+        printFirstTemp();
+        printSecondTemp();
     }
 }

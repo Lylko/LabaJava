@@ -23,7 +23,7 @@ public class Bomber extends Military {
         return this.crewNum;
     }
 
-    protected void SecondTemplateInfo(){
+    protected void printSecondTemp(){
         System.out.println("Number of crew members on this bomber aircraft is " + getCrewNum() + " persons");
         System.out.println("------------------------------------------------------------------");
     }

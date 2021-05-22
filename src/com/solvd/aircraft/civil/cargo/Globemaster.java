@@ -13,8 +13,8 @@ public class Globemaster extends Cargo {
 
     public void printInfo(){
         System.out.println("----------------------Cargo aircraft 'Globemaster'--------------------");
-        FirstTemplateInfo();
-        SecondTemplateInfo();
+        printFirstTemp();
+        printSecondTemp();
     }
 
 }

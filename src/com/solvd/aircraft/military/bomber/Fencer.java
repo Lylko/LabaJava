@@ -9,15 +9,6 @@ public class Fencer extends Bomber {
         setMaxSpeed(1700);
         setCrewNum(2);
         setCountryName("USSR");
-    }
-
-    public Fencer(int maxSpeed, int maxHeight, String countryName, int crewNum){
-        super(maxSpeed, maxHeight, countryName, crewNum);
-    }
-
-    public void printInfo(){
-        System.out.println("----------------------Bomber aircraft 'Fencer'--------------------");
-        printFirstTemp();
-        printSecondTemp();
+        setPlaneName("Fencer");
     }
 }

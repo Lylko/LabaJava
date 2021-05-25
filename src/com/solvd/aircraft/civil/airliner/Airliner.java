@@ -7,11 +7,15 @@ public class Airliner extends Civil {
     private int passengerCap;
 
     public Airliner(){
+        setMaxHeight(12);
+        setMaxSpeed(860);
+        setPassengerCap(280);
         setCountryName("Solvd");
+        setPlaneName("Example");
     }
 
-    public Airliner(int maxSpeed, int maxHeight, String countryName, int passengerCap){
-        super(maxSpeed, maxHeight, countryName);
+    public Airliner(int maxSpeed, int maxHeight, String countryName, int passengerCap, String planeName){
+        super(maxSpeed, maxHeight, countryName, planeName);
         this.passengerCap = passengerCap;
     }
 
@@ -23,8 +27,12 @@ public class Airliner extends Civil {
         return this.passengerCap;
     }
 
+    public void printDescrip(){
+        System.out.println("Airliner - bla bla bla");
+    }
+
     public void printInfo(){
-        System.out.println("----------------------My own airliner-------------------------");
+        System.out.println("----------------------Airliner '" + getPlaneName() + "'-----------------------");
         printFirstTemp();
         printSecondTemp();
     }

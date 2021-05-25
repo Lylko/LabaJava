@@ -1,19 +1,23 @@
 package com.solvd.aircraft.military;
 
-public abstract class Military {
+import com.solvd.aircraft.Aircraft;
+
+public abstract class Military implements Aircraft {
 
     private int maxSpeed;
     private int maxHeight;
     private String countryName;
+    private String planeName;
 
     public Military(){
 
     }
 
-    public Military(int maxSpeed, int maxHeight, String countryName){
+    public Military(int maxSpeed, int maxHeight, String countryName, String planeName){
         this.maxSpeed = maxSpeed;
         this.maxHeight = maxHeight;
         this.countryName = countryName;
+        this.planeName = planeName;
     }
 
     public void setMaxSpeed(int maxSpeed){
@@ -26,6 +30,14 @@ public abstract class Military {
 
     public void setCountryName(String countryName){
         this.countryName = countryName;
+    }
+
+    public void setPlaneName(String planeName){
+        this.planeName = planeName;
+    }
+
+    public String getPlaneName(){
+        return this.planeName;
     }
 
     public int getMaxSpeed(){

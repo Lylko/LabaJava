@@ -9,11 +9,7 @@ public class Cossack extends Cargo {
         setMaxSpeed(850);
         setMaxLiftCap(640000);
         setCountryName("USSR");
+        setPlaneName("Cossack");
     }
 
-    public void printInfo(){
-        System.out.println("----------------------Cargo aircraft 'Cossack'--------------------");
-        printFirstTemp();
-        printSecondTemp();
-    }
 }

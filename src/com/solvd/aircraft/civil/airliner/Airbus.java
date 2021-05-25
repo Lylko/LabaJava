@@ -8,11 +8,6 @@ public class Airbus extends Airliner {
         setMaxSpeed(860);
         setPassengerCap(280);
         setCountryName("France");
-    }
-
-    public void printInfo(){
-        System.out.println("----------------------Airliner 'Airbus'-----------------------");
-        printFirstTemp();
-        printSecondTemp();
+        setPlaneName("Airbus");
     }
 }

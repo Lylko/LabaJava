@@ -7,11 +7,7 @@ public class Beluga extends Cargo {
         setMaxSpeed(750);
         setMaxLiftCap(155000);
         setCountryName("France");
+        setPlaneName("Beluga");
     }
 
-    public void printInfo(){
-        System.out.println("----------------------Cargo aircraft 'Beluga'--------------------");
-        printFirstTemp();
-        printSecondTemp();
-    }
 }

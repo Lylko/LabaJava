@@ -1,19 +1,23 @@
 package com.solvd.aircraft.civil;
 
-public abstract class Civil {
+import com.solvd.aircraft.Aircraft;
+
+public abstract class Civil implements Aircraft{
 
     private int maxSpeed;
     private int maxHeight;
     private String countryName;
+    private String planeName;
 
     public Civil(){
 
     }
 
-    public Civil(int maxSpeed, int maxHeight, String countryName){
+    public Civil(int maxSpeed, int maxHeight, String countryName, String planeName){
         this.maxSpeed = maxSpeed;
         this.maxHeight = maxHeight;
         this.countryName = countryName;
+        this.planeName = planeName;
     }
 
     public void setMaxSpeed(int maxSpeed){
@@ -26,6 +30,14 @@ public abstract class Civil {
 
     public void setCountryName(String countryName){
         this.countryName = countryName;
+    }
+
+    public void setPlaneName(String planeName){
+        this.planeName = planeName;
+    }
+
+    public String getPlaneName(){
+        return this.planeName;
     }
 
     public int getMaxSpeed(){

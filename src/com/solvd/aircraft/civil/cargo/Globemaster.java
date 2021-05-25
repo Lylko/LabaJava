@@ -9,12 +9,7 @@ public class Globemaster extends Cargo {
         setMaxSpeed(640);
         setMaxLiftCap(265000);
         setCountryName("USA");
-    }
-
-    public void printInfo(){
-        System.out.println("----------------------Cargo aircraft 'Globemaster'--------------------");
-        printFirstTemp();
-        printSecondTemp();
+        setPlaneName("Globemaster");
     }
 
 }

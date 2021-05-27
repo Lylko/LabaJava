@@ -6,8 +6,8 @@ public class Dragonfly extends Stormtrooper {
         setMaxHeight(13);
         setMaxSpeed(816);
         setNumSuspPoints(8);
-        setCountryName("USSR");
-        setPlaneName("Fencer");
+        setCountryName("UK");
+        setPlaneName("Dragonfly");
     }
 
 }

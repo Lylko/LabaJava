@@ -58,7 +58,7 @@ public abstract class Military implements Aircraft {
         System.out.println("Maximum flight altitude of this aircraft is " + getMaxHeight() + " km");
     }
 
-    public abstract int getCrewNum();
+//    public abstract int getCrewNum();
 
     protected abstract void printSecondTemp();
 

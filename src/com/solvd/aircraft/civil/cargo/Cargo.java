@@ -28,7 +28,7 @@ public class Cargo extends Civil {
     }
 
     public void printDescrip(){
-        System.out.println("Cargo aircraft - bla bla bla");
+        System.out.println("Cargo aircraft - description");
     }
 
     public void printInfo(){

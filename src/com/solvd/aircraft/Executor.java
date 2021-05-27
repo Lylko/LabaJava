@@ -6,6 +6,7 @@ import com.solvd.aircraft.civil.cargo.Cargo;
 import com.solvd.aircraft.civil.Civil;
 import com.solvd.aircraft.civil.cargo.Cossack;
 import com.solvd.aircraft.military.bomber.Fencer;
+import com.solvd.aircraft.military.stormtrooper.Stormtrooper;
 
 public class Executor {
     public static void main(String[] args){
@@ -28,6 +29,10 @@ public class Executor {
         Cossack plane1 = new Cossack();
         plane1.setMaxHeight(11111);
         plane1.printInfo();
+
+        Stormtrooper plane2 = new Stormtrooper();
+        plane2.printDescrip();
+        plane2.printInfo();
 
     }
 }

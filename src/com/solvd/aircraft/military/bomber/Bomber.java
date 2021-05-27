@@ -28,7 +28,7 @@ public class Bomber extends Military {
     }
 
     public void printDescrip(){
-        System.out.println("Bomber - bla bla bla");
+        System.out.println("Bomber - description");
     }
 
     public void printInfo(){

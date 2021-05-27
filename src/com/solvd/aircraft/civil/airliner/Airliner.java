@@ -28,7 +28,7 @@ public class Airliner extends Civil {
     }
 
     public void printDescrip(){
-        System.out.println("Airliner - bla bla bla");
+        System.out.println("Airliner - description");
     }
 
     public void printInfo(){

@@ -7,7 +7,11 @@ public class Stormtrooper extends Military{
     private int suspensionPoint;
 
     public Stormtrooper(){
-
+        setMaxHeight(13);
+        setMaxSpeed(816);
+        setNumSuspPoints(8);
+        setCountryName("Solvd");
+        setPlaneName("Example");
     }
 
     public Stormtrooper(int maxSpeed, int maxHeight, String countryName, int suspensionPoint, String planeName){
@@ -24,7 +28,7 @@ public class Stormtrooper extends Military{
     }
 
     public void printDescrip(){
-        System.out.println("Stormtrooper - bla bla bla");
+        System.out.println("Stormtrooper - description");
     }
 
     public void printInfo(){

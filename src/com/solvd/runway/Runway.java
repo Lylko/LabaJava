@@ -16,7 +16,7 @@ public abstract class Runway {
     }
 
     public void printAccess(Military aircraft){
-        int weight = aircraft.getAirClass();
+        double weight = aircraft.getAirClass();
         if (weight <= (getClassNum()*1.05)){
             System.out.println("Landing permit");
         } else {
@@ -25,7 +25,25 @@ public abstract class Runway {
     }
 
     public void printAccess(Civil aircraft){
-        int weight = aircraft.getAirClass();
+        double weight = aircraft.getAirClass();
+        if (weight <= (getClassNum()*1.05)){
+            System.out.println("Landing permit");
+        } else {
+            System.out.println("Denied aircraft landing");
+        }
+    }
+
+    public void printAccess(int aircraftClass){
+        double weight = aircraftClass;
+        if (weight <= (getClassNum()*1.05)){
+            System.out.println("Landing permit");
+        } else {
+            System.out.println("Denied aircraft landing");
+        }
+    }
+
+    public void printAccess(double aircraftClass){
+        double weight = aircraftClass;
         if (weight <= (getClassNum()*1.05)){
             System.out.println("Landing permit");
         } else {

@@ -12,6 +12,8 @@ public class Executor {
         HighFlex way = new HighFlex();
 
         way.printAccess(plane1);
+        way.printAccess(12);
+        way.printAccess(12.6);
         plane1.printDescrip();
 
 

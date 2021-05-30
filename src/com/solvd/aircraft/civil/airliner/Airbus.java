@@ -9,5 +9,11 @@ public class Airbus extends Airliner {
         setPassengerCap(280);
         setCountryName("France");
         setPlaneName("Airbus");
+        setAirClass(35);
+    }
+
+    @Override
+    public void printDescrip(){
+        System.out.println("Beluga - description");
     }
 }

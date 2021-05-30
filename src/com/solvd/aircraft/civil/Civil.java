@@ -8,6 +8,7 @@ public abstract class Civil implements Aircraft{
     private int maxHeight;
     private String countryName;
     private String planeName;
+    private int airClass;
 
     public Civil(){
 
@@ -36,6 +37,10 @@ public abstract class Civil implements Aircraft{
         this.planeName = planeName;
     }
 
+    protected void setAirClass(int airClass){
+        this.airClass = airClass;
+    }
+
     public String getPlaneName(){
         return this.planeName;
     }
@@ -50,6 +55,10 @@ public abstract class Civil implements Aircraft{
 
     public String getCountryName(){
         return this.countryName;
+    }
+
+    public int getAirClass(){
+        return this.airClass;
     }
 
     protected void printFirstTemp(){

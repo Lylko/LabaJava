@@ -61,14 +61,4 @@ public abstract class Military implements Aircraft {
         return this.airClass;
     }
 
-    protected void printFirstTemp(){
-        System.out.println("The aircraft was developed in " + getCountryName());
-        System.out.println("Maximum speed of this aircraft is " + getMaxSpeed() + " km/h");
-        System.out.println("Maximum flight altitude of this aircraft is " + getMaxHeight() + " km");
-    }
-
-//    public abstract int getCrewNum();
-
-    protected abstract void printSecondTemp();
-
 }

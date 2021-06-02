@@ -31,18 +31,13 @@ public class Bomber extends Military {
         System.out.println("Bomber - description");
     }
 
-    public void printDescrip(String info){
-        System.out.println("Bomber - description");
+    public String toString(){
+        return ("----------------------Stormtrooper '" + getPlaneName() + "'--------------------\n" +
+                "The aircraft was developed in " + getCountryName() +
+                "\nMaximum speed of this aircraft is " + getMaxSpeed() + " km/h\n" +
+                "Maximum flight altitude of this aircraft is " + getMaxHeight() + " km\n" +
+                "Number of crew members on this bomber aircraft is " + getCrewNum() + " persons" +
+                "\n------------------------------------------------------------------");
     }
 
-    public void printInfo(){
-        System.out.println("----------------------Bomber aircraft '" + getPlaneName() + "'--------------------");
-        printFirstTemp();
-        printSecondTemp();
-    }
-
-    protected void printSecondTemp(){
-        System.out.println("Number of crew members on this bomber aircraft is " + getCrewNum() + " persons");
-        System.out.println("------------------------------------------------------------------");
-    }
 }

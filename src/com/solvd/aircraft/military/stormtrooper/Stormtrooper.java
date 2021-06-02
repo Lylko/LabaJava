@@ -31,14 +31,12 @@ public class Stormtrooper extends Military{
         System.out.println("Stormtrooper - description");
     }
 
-    public void printInfo(){
-        System.out.println("----------------------Stormtrooper '" + getPlaneName() + "'--------------------");
-        printFirstTemp();
-        printSecondTemp();
-    }
-
-    protected void printSecondTemp(){
-        System.out.println("Number of suspension points on this stormtrooper is " + getNumSuspPoints());
-        System.out.println("------------------------------------------------------------------");
+    public String toString(){
+        return ("----------------------Stormtrooper '" + getPlaneName() + "'--------------------\n" +
+                "The aircraft was developed in " + getCountryName() +
+                "\nMaximum speed of this aircraft is " + getMaxSpeed() + " km/h\n" +
+                "Maximum flight altitude of this aircraft is " + getMaxHeight() + " km\n" +
+                "Number of suspension points on this stormtrooper is " + getNumSuspPoints() +
+                "\n------------------------------------------------------------------");
     }
 }

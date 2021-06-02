@@ -31,15 +31,13 @@ public class Cargo extends Civil {
         System.out.println("Cargo aircraft - description");
     }
 
-    public void printInfo(){
-        System.out.println("----------------------Cargo aircraft '" + getPlaneName() + "'--------------------");
-        printFirstTemp();
-        printSecondTemp();
-    }
-
-    protected void printSecondTemp(){
-        System.out.println("Maximum lifting capacity of this cargo aircraft is " + getMaxLiftCap() + " kg");
-        System.out.println("------------------------------------------------------------------");
+    public String toString(){
+        return ("----------------------Cargo aircraft '" + getPlaneName() + "'-----------------------\n" +
+                "The aircraft was developed in " + getCountryName() +
+                "\nMaximum speed of this aircraft is " + getMaxSpeed() + " km/h\n" +
+                "Maximum flight altitude of this aircraft is " + getMaxHeight() + " km\n" +
+                "Maximum lifting capacity of this cargo aircraft is " + getMaxLiftCap() + " kg\n" +
+                "------------------------------------------------------------------");
     }
 
 }

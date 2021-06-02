@@ -31,6 +31,10 @@ public class Bomber extends Military {
         System.out.println("Bomber - description");
     }
 
+    public void printDescrip(String info){
+        System.out.println("Bomber - description");
+    }
+
     public void printInfo(){
         System.out.println("----------------------Bomber aircraft '" + getPlaneName() + "'--------------------");
         printFirstTemp();

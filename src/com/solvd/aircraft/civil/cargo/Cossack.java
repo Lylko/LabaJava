@@ -10,6 +10,12 @@ public class Cossack extends Cargo {
         setMaxLiftCap(640000);
         setCountryName("USSR");
         setPlaneName("Cossack");
+        setAirClass(51);
+    }
+
+    @Override
+    public void printDescrip(){
+        System.out.println("Cossack - description");
     }
 
 }

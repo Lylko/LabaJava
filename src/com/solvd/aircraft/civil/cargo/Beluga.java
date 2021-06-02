@@ -8,6 +8,12 @@ public class Beluga extends Cargo {
         setMaxLiftCap(155000);
         setCountryName("France");
         setPlaneName("Beluga");
+        setAirClass(45);
+    }
+
+    @Override
+    public void printDescrip(){
+        System.out.println("Beluga - description");
     }
 
 }

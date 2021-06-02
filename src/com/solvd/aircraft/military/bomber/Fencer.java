@@ -10,5 +10,11 @@ public class Fencer extends Bomber {
         setCrewNum(2);
         setCountryName("USSR");
         setPlaneName("Fencer");
+        setAirClass(17);
+    }
+
+    @Override
+    public void printDescrip(){
+        System.out.println("Fencer - description");
     }
 }

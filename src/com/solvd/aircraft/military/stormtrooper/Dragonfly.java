@@ -8,6 +8,12 @@ public class Dragonfly extends Stormtrooper {
         setNumSuspPoints(8);
         setCountryName("UK");
         setPlaneName("Dragonfly");
+        setAirClass(14);
+    }
+
+    @Override
+    public void printDescrip(){
+        System.out.println("Stormtrooper - description");
     }
 
 }

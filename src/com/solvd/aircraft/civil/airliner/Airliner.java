@@ -31,14 +31,13 @@ public class Airliner extends Civil {
         System.out.println("Airliner - description");
     }
 
-    public void printInfo(){
-        System.out.println("----------------------Airliner '" + getPlaneName() + "'-----------------------");
-        printFirstTemp();
-        printSecondTemp();
+    public String toString(){
+        return ("----------------------Airliner '" + getPlaneName() + "'-----------------------\n" +
+                "The aircraft was developed in " + getCountryName() +
+                "\nMaximum speed of this aircraft is " + getMaxSpeed() + " km/h\n" +
+                "Maximum flight altitude of this aircraft is " + getMaxHeight() + " km\n" +
+                "Limit of passengers on this airliner is " + getPassengerCap() + " persons\n" +
+                "------------------------------------------------------------------");
     }
 
-    protected void printSecondTemp(){
-        System.out.println("Limit of passengers on this airliner is " + getPassengerCap() + " persons");
-        System.out.println("------------------------------------------------------------------");
-    }
 }

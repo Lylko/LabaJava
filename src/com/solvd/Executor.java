@@ -1,11 +1,17 @@
 package com.solvd;
 
 import com.solvd.aircraft.civil.airliner.Airbus;
+import com.solvd.aircraft.civil.airliner.Trident;
+import com.solvd.aircraft.civil.airliner.Xiangfeng;
 import com.solvd.aircraft.civil.cargo.Beluga;
 import com.solvd.aircraft.civil.cargo.Cossack;
 import com.solvd.aircraft.civil.cargo.Globemaster;
 import com.solvd.aircraft.military.bomber.Fencer;
+import com.solvd.aircraft.military.bomber.Nighthawk;
+import com.solvd.aircraft.military.bomber.Xian;
+import com.solvd.aircraft.military.stormtrooper.Buccaneer;
 import com.solvd.aircraft.military.stormtrooper.Dragonfly;
+import com.solvd.aircraft.military.stormtrooper.Skyhawk;
 
 import java.util.Scanner;
 
@@ -77,7 +83,7 @@ public class Executor {
                         while (i == 0) {
 
                             System.out.println("Choose cargo aircraft:" +
-                                    "\n 0 - Airbus, 1 - Noname, 2 - Noname, e - Exit.");
+                                    "\n 0 - Airbus, 1 - Xiangfeng, 2 - Trident, e - Exit.");
                             String airlinerChoice = in.nextLine();
 
                             switch (airlinerChoice) {
@@ -87,11 +93,13 @@ public class Executor {
                                     i = 1;
                                     break;
                                 case "1":
-                                    System.out.println("Noname - 1");
+                                    Xiangfeng xiangfeng = new Xiangfeng();
+                                    System.out.println("Aircraft 'Xiangfeng' created.");
                                     i = 1;
                                     break;
                                 case "2":
-                                    System.out.println("Noname - 2");
+                                    Trident trident = new Trident();
+                                    System.out.println("Aircraft 'Trident' created.");
                                     i = 1;
                                     break;
                                 case "e":
@@ -124,7 +132,7 @@ public class Executor {
                         while (i == 0) {
 
                             System.out.println("Choose bomber aircraft:" +
-                                    "\n 0 - Fencer, 1 - Noname, 2 - Noname, e - Exit.");
+                                    "\n 0 - Fencer, 1 - Nighthawk, 2 - Xian, e - Exit.");
                             String bomberChoice = in.nextLine();
 
                             switch (bomberChoice) {
@@ -134,11 +142,13 @@ public class Executor {
                                     i = 1;
                                     break;
                                 case "1":
-                                    System.out.println("Noname - 1");
+                                    Nighthawk nighthawk = new Nighthawk();
+                                    System.out.println("Aircraft 'Nighthawk' created.");
                                     i = 1;
                                     break;
                                 case "2":
-                                    System.out.println("Noname - 2");
+                                    Xian xian = new Xian();
+                                    System.out.println("Aircraft 'Xian' created.");
                                     i = 1;
                                     break;
                                 case "e":
@@ -157,7 +167,7 @@ public class Executor {
                         while (i == 0) {
 
                             System.out.println("Choose stormtrooper aircraft:" +
-                                    "\n 0 - Dragonfly, 1 - Noname, 2 - Noname, e - Exit.");
+                                    "\n 0 - Dragonfly, 1 - Buccaneer, 2 - Skyhawk, e - Exit.");
                             String stormChoice = in.nextLine();
 
                             switch (stormChoice) {
@@ -167,11 +177,13 @@ public class Executor {
                                     i = 1;
                                     break;
                                 case "1":
-                                    System.out.println("Noname - 1");
+                                    Buccaneer buccaneer = new Buccaneer();
+                                    System.out.println("Aircraft 'Buccaneer' created.");
                                     i = 1;
                                     break;
                                 case "2":
-                                    System.out.println("Noname - 2");
+                                    Skyhawk skyhawk = new Skyhawk();
+                                    System.out.println("Aircraft 'Skyhawk' created.");
                                     i = 1;
                                     break;
                                 case "e":

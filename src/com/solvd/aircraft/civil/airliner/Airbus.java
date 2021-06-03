@@ -1,7 +1,5 @@
 package com.solvd.aircraft.civil.airliner;
 
-import com.solvd.aircraft.civil.airliner.Airliner;
-
 public class Airbus extends Airliner {
     public Airbus(){
         setMaxHeight(12);

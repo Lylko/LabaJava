@@ -60,6 +60,14 @@ public abstract class Runway {
         return aircraftList;
     }
 
+    public List<Civil> getCivilList(){
+        return civilList;
+    }
+
+    public List<Military> getMilitaryList(){
+        return militaryList;
+    }
+
     public boolean printAccess(Military aircraft){
         double airClass = aircraft.getAirClass();
         return airClass <= (getClassNum() * airIndex);

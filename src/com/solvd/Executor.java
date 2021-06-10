@@ -29,7 +29,6 @@ public class Executor {
         runway.addRunwayList(plane);
         runway.addRunwayList(plane1);
         runway.addRunwayList(plane2);
-
         runway.addRunwayList(plane3);
         runway.addRunwayList(plane4);
         runway.addRunwayList(plane5);

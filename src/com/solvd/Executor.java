@@ -1,216 +1,44 @@
 package com.solvd;
 
+import com.solvd.aircraft.Aircraft;
 import com.solvd.aircraft.civil.airliner.Airbus;
 import com.solvd.aircraft.civil.airliner.Trident;
-import com.solvd.aircraft.civil.airliner.Xiangfeng;
 import com.solvd.aircraft.civil.cargo.Beluga;
-import com.solvd.aircraft.civil.cargo.Cossack;
-import com.solvd.aircraft.civil.cargo.Globemaster;
-import com.solvd.aircraft.military.bomber.Fencer;
-import com.solvd.aircraft.military.bomber.Nighthawk;
 import com.solvd.aircraft.military.bomber.Xian;
-import com.solvd.aircraft.military.stormtrooper.Buccaneer;
 import com.solvd.aircraft.military.stormtrooper.Dragonfly;
 import com.solvd.aircraft.military.stormtrooper.Skyhawk;
+import com.solvd.runway.flex.HighFlex;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 
 public class Executor {
     public static void main(String[] args) {
 
         Airbus plane = new Airbus();
-        System.out.println(plane.toString());
+        Trident plane1 = new Trident();
+        Beluga plane2 = new Beluga();
 
-        Dragonfly plane1 = new Dragonfly();
-        System.out.println(plane1.toString());
+        Dragonfly plane3 = new Dragonfly();
+        Skyhawk plane4 = new Skyhawk();
+        Xian plane5 = new Xian();
+        Xian plane6 = new Xian();
 
-        System.out.println("\n-----Creating new aircraft-----");
-        Scanner in = new Scanner(System.in);
+        HighFlex runway = new HighFlex();
 
-        int i = 0;
+        runway.addRunwayList(plane);
+        runway.addRunwayList(plane1);
+        runway.addRunwayList(plane2);
 
-        while (i == 0) {
+        runway.addRunwayList(plane3);
+        runway.addRunwayList(plane4);
+        runway.addRunwayList(plane5);
+        runway.addRunwayList(plane6);
 
-            System.out.println("Choose type of aircraft: \n 0 - Civil, 1 - Military, e - Exit.");
-            String choice = in.nextLine();
+        runway.printRunwayList();
 
-            if ("0".equals(choice)) {
-
-                while (i == 0) {
-
-                    System.out.println("Choose type of civil aircraft: " +
-                            "\n 0 - Cargo, 1 - Airliner, e - Exit.");
-                    String secondChoice = in.nextLine();
-
-                    if ("0".equals(secondChoice)) {
-
-                        while (i == 0) {
-
-                            System.out.println("Choose cargo aircraft:" +
-                                    "\n 0 - Beluga, 1 - Cossack, 2 - Globemaster, e - Exit.");
-                            String cargoChoice = in.nextLine();
-
-                            switch (cargoChoice) {
-                                case "0":
-                                    Beluga beluga = new Beluga();
-                                    System.out.println("Aircraft 'Beluga' created.");
-                                    i = 1;
-                                    break;
-                                case "1":
-                                    Cossack cossack = new Cossack();
-                                    System.out.println("Aircraft 'Cossack' created.");
-                                    i = 1;
-                                    break;
-                                case "2":
-                                    Globemaster globe = new Globemaster();
-                                    System.out.println("Aircraft 'Globemaster' created.");
-                                    i = 1;
-                                    break;
-                                case "e":
-                                    System.out.println("Exit from the program was initiated.");
-                                    i = 1;
-                                    break;
-                                default:
-                                    System.out.println("Incorrect value. Please, try again.");
-                                    break;
-
-                            }
-                        }
-
-                    } else if ("1".equals(secondChoice)) {
-
-                        while (i == 0) {
-
-                            System.out.println("Choose cargo aircraft:" +
-                                    "\n 0 - Airbus, 1 - Xiangfeng, 2 - Trident, e - Exit.");
-                            String airlinerChoice = in.nextLine();
-
-                            switch (airlinerChoice) {
-                                case "0":
-                                    Airbus airbus = new Airbus();
-                                    System.out.println("Aircraft 'Airbus' created.");
-                                    i = 1;
-                                    break;
-                                case "1":
-                                    Xiangfeng xiangfeng = new Xiangfeng();
-                                    System.out.println("Aircraft 'Xiangfeng' created.");
-                                    i = 1;
-                                    break;
-                                case "2":
-                                    Trident trident = new Trident();
-                                    System.out.println("Aircraft 'Trident' created.");
-                                    i = 1;
-                                    break;
-                                case "e":
-                                    System.out.println("Exit from the program was initiated.");
-                                    i = 1;
-                                    break;
-                                default:
-                                    System.out.println("Incorrect value. Please, try again.");
-                                    break;
-
-                            }
-                        }
-                    } else if ("e".equals(secondChoice)) {
-                        System.out.println("Exit from the program was initiated.");
-                        i = 1;
-                    } else {
-                        System.out.println("Incorrect value. Please, try again.");
-                    }
-                }
-            } else if ("1".equals(choice)) {
-
-                while (i == 0) {
-
-                    System.out.println("Choose type of military aircraft: " +
-                            "\n 0 - Bomber, 1 - Stormtrooper, e - Exit.");
-                    String secondChoice = in.nextLine();
-
-                    if ("0".equals(secondChoice)) {
-
-                        while (i == 0) {
-
-                            System.out.println("Choose bomber aircraft:" +
-                                    "\n 0 - Fencer, 1 - Nighthawk, 2 - Xian, e - Exit.");
-                            String bomberChoice = in.nextLine();
-
-                            switch (bomberChoice) {
-                                case "0":
-                                    Fencer fencer = new Fencer();
-                                    System.out.println("Aircraft 'Fencer' created.");
-                                    i = 1;
-                                    break;
-                                case "1":
-                                    Nighthawk nighthawk = new Nighthawk();
-                                    System.out.println("Aircraft 'Nighthawk' created.");
-                                    i = 1;
-                                    break;
-                                case "2":
-                                    Xian xian = new Xian();
-                                    System.out.println("Aircraft 'Xian' created.");
-                                    i = 1;
-                                    break;
-                                case "e":
-                                    System.out.println("Exit from the program was initiated.");
-                                    i = 1;
-                                    break;
-                                default:
-                                    System.out.println("Incorrect value. Please, try again.");
-                                    break;
-
-                            }
-                        }
-
-                    } else if ("1".equals(secondChoice)) {
-
-                        while (i == 0) {
-
-                            System.out.println("Choose stormtrooper aircraft:" +
-                                    "\n 0 - Dragonfly, 1 - Buccaneer, 2 - Skyhawk, e - Exit.");
-                            String stormChoice = in.nextLine();
-
-                            switch (stormChoice) {
-                                case "0":
-                                    Dragonfly dragon = new Dragonfly();
-                                    System.out.println("Aircraft 'DragonFly' created.");
-                                    i = 1;
-                                    break;
-                                case "1":
-                                    Buccaneer buccaneer = new Buccaneer();
-                                    System.out.println("Aircraft 'Buccaneer' created.");
-                                    i = 1;
-                                    break;
-                                case "2":
-                                    Skyhawk skyhawk = new Skyhawk();
-                                    System.out.println("Aircraft 'Skyhawk' created.");
-                                    i = 1;
-                                    break;
-                                case "e":
-                                    System.out.println("Exit from the program was initiated.");
-                                    i = 1;
-                                    break;
-                                default:
-                                    System.out.println("Incorrect value. Please, try again.");
-                                    break;
-
-                            }
-                        }
-                    } else if ("e".equals(secondChoice)) {
-                        System.out.println("Exit from the program was initiated.");
-                        i = 1;
-                    } else {
-                        System.out.println("Incorrect value. Please, try again.");
-                    }
-                }
-
-            } else if ("e".equals(choice)) {
-                System.out.println("Exit from the program was initiated.");
-                i = 1;
-            } else {
-                System.out.println("Incorrect value. Please, try again.");
-            }
-
+        for (Aircraft aircraft : runway.getAircraftList()){
+            System.out.println(aircraft.toString());
         }
 
     }

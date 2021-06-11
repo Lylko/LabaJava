@@ -11,10 +11,11 @@ import java.util.List;
 public abstract class Runway {
 
     private int classNum;
-    private final double airIndex = 1.05;
+    private String runwayName;
+    private final double AIRINDEX = 1.05;
     private List<Military> militaryList;
     private List<Civil> civilList;
-    private List<Aircraft> aircraftList;
+    private List<List<?>> aircraftList;
 
     public Runway(){
         militaryList = new ArrayList<>();
@@ -26,37 +27,50 @@ public abstract class Runway {
         this.classNum = classNum;
     }
 
+    public void setRunwayName(String name){
+        this.runwayName = name;
+    }
+
+    public String getRunwayName(){
+        return runwayName;
+    }
+
     public int getClassNum(){
         return this.classNum;
     }
 
-    public void addRunwayList(Civil plane){
-        if (printAccess(plane)){
+    public void addPlane(Civil plane){
+        if (isPrintAccess(plane)){
             civilList.add(plane);
-            addAircraftList(plane);
+            addToAircraftList();
+            System.out.println("Aircraft " + plane.getPlaneName() + " created.");
         } else {
             System.out.println(plane.getPlaneName() + " is not suitable for accommodation.");
         }
     }
 
-    public void addRunwayList(Military plane){
-        if (printAccess(plane)){
+    public void addPlane(Military plane){
+        if (isPrintAccess(plane)){
             militaryList.add(plane);
-            addAircraftList(plane);
+            addToAircraftList();
+            System.out.println("Aircraft " + plane.getPlaneName() + " created.");
         } else {
             System.out.println(plane.getPlaneName() + " is not suitable for accommodation.");
         }
     }
 
-    private void addAircraftList(Military aircraft){
-        aircraftList.add(aircraft);
+    private void addToAircraftList(){
+        if (militaryList != null || civilList != null ){
+            aircraftList.remove(militaryList);
+            aircraftList.remove(civilList);
+            aircraftList.add(civilList);
+            aircraftList.add(militaryList);
+        } else {
+            System.out.println("Something going wrong... Military or civil list doesnt exist");
+        }
     }
 
-    private void addAircraftList(Civil aircraft){
-        aircraftList.add(aircraft);
-    }
-
-    public List<Aircraft> getAircraftList(){
+    public List<List<?>> getAircraftList(){
         return aircraftList;
     }
 
@@ -68,19 +82,19 @@ public abstract class Runway {
         return militaryList;
     }
 
-    public boolean printAccess(Military aircraft){
+    public boolean isPrintAccess(Military aircraft){
         double airClass = aircraft.getAirClass();
-        return airClass <= (getClassNum() * airIndex);
+        return airClass <= (getClassNum() * AIRINDEX);
     }
 
-    public boolean printAccess(Civil aircraft){
+    public boolean isPrintAccess(Civil aircraft){
         double airClass = aircraft.getAirClass();
-        return airClass <= (getClassNum() * airIndex);
+        return airClass <= (getClassNum() * AIRINDEX);
     }
 
-    public void printRunwayList(){
+    public void printAircraftList(){
 
-        if ( civilList.size()>0 ) {
+        if ( (civilList!=null) && (civilList.size()>0) ) {
             System.out.println("\n----------------------------Civil aircraft" +
                     "----------------------------\n");
 
@@ -89,7 +103,7 @@ public abstract class Runway {
             }
         }
 
-        if ( militaryList.size()>0 ) {
+        if ( (civilList!=null) && (militaryList.size()>0) ) {
             System.out.println("\n----------------------------Military aircraft" +
                     "----------------------------\n");
 

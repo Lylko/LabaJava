@@ -24,11 +24,12 @@ import com.solvd.runway.rigid.MediumRigid;
 import com.solvd.runway.rigid.ULowRigid;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Menu {
 
-    private List<Runway> runwayList;
+    private Map<String, Runway> runwayList;
     private Airport airport;
 
     public Menu(){
@@ -50,7 +51,7 @@ public class Menu {
                 System.out.println("\nChoose what you want to do: " +
                         "\n1 - Create new runway,\n2 - Add aircraft to runway," +
                         "\n3 - show created aircrafts,\n4 - show available runways," +
-                        "\ne - exit.");
+                        "\n5 - show list of unique runways,\ne - exit.");
 
                 String choice = in.nextLine();
                 switch (choice) {
@@ -72,6 +73,10 @@ public class Menu {
                         airport.printRunwayList();
                         i = checkExit();
                         break;
+//                    case "5":
+//                        airport.printUniqueRunwayList();
+//                        i = checkExit();
+//                        break;
                     case "e":
                         i = 0;
                         break;
@@ -137,7 +142,7 @@ public class Menu {
         return 0;
     }
 
-    private int chooseRunway(){
+    private String chooseRunway(){
 
         Scanner in = new Scanner(System.in);
         int i = 3;
@@ -148,14 +153,20 @@ public class Menu {
             int choice = in.nextInt();
 
             if ((choice <= runwayList.size()) && (choice > 0)) {
-                return choice-1;
+                int j = 1;
+                for (String name : runwayList.keySet()){
+                    if (choice == j){
+                        return name;
+                    }
+                    j++;
+                }
             } else {
                 System.out.println("Incorrect value. Please, try again later.");
                 i--;
             }
         }
 
-        return 0;
+        return "error";
     }
 
     private void createRunway(){
@@ -180,25 +191,21 @@ public class Menu {
                         case "1":
                             HighFlex highFlex = new HighFlex();
                             airport.addRunway(highFlex);
-                            System.out.println("Created new runway 'HighFlex'.");
                             i = 0;
                             break;
                         case "2":
                             MediumFlex mediumFlex = new MediumFlex();
                             airport.addRunway(mediumFlex);
-                            System.out.println("Created new runway 'MediumFlex'.");
                             i = 0;
                             break;
                         case "3":
                             LowFlex lowFlex = new LowFlex();
                             airport.addRunway(lowFlex);
-                            System.out.println("Created new runway 'LowFlex'.");
                             i = 0;
                             break;
                         case "4":
                             ULowFlex uLowFlex = new ULowFlex();
                             airport.addRunway(uLowFlex);
-                            System.out.println("Created new runway 'ULowFlex'.");
                             i = 0;
                             break;
                         case "e":
@@ -224,25 +231,21 @@ public class Menu {
                         case "1":
                             HighRigid highRigid = new HighRigid();
                             airport.addRunway(highRigid);
-                            System.out.println("Created new runway 'HighRigid'.");
                             i = 0;
                             break;
                         case "2":
                             MediumRigid mediumRigid = new MediumRigid();
                             airport.addRunway(mediumRigid);
-                            System.out.println("Created new runway 'MediumRigid'.");
                             i = 0;
                             break;
                         case "3":
                             LowRigid lowRigid = new LowRigid();
                             airport.addRunway(lowRigid);
-                            System.out.println("Created new runway 'LowRigid'.");
                             i = 0;
                             break;
                         case "4":
                             ULowRigid uLowRigid = new ULowRigid();
                             airport.addRunway(uLowRigid);
-                            System.out.println("Created new runway 'ULowRigid'.");
                             i = 0;
                             break;
                         case "e":

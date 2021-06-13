@@ -4,7 +4,10 @@ import com.solvd.aircraft.Aircraft;
 import com.solvd.aircraft.civil.Civil;
 import com.solvd.aircraft.military.Military;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public abstract class Runway {
 

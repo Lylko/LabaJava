@@ -51,7 +51,7 @@ public class Menu {
                 System.out.println("\nChoose what you want to do: " +
                         "\n1 - Create new runway,\n2 - Add aircraft to runway," +
                         "\n3 - show created aircrafts,\n4 - show available runways," +
-                        "\n5 - show list of unique runways,\ne - exit.");
+                        "\ne - exit.");
 
                 String choice = in.nextLine();
                 switch (choice) {
@@ -73,10 +73,6 @@ public class Menu {
                         airport.printRunwayList();
                         i = checkExit();
                         break;
-//                    case "5":
-//                        airport.printUniqueRunwayList();
-//                        i = checkExit();
-//                        break;
                     case "e":
                         i = 0;
                         break;
@@ -94,9 +90,9 @@ public class Menu {
     private boolean isRunwayExist(){
 
         Scanner in = new Scanner(System.in);
-        if ((runwayList != null) && (runwayList.size() > 0)){
+        if (runwayList.size() > 0){
             return true;
-        } else if ( runwayList != null ) {
+        } else {
             int i = 3;
             while (i > 0){
 
@@ -114,10 +110,6 @@ public class Menu {
                     i--;
                 }
             }
-            return false;
-
-        } else {
-            System.out.println("Something going wrong... RunwayList doesnt exist.");
             return false;
         }
     }
@@ -148,7 +140,7 @@ public class Menu {
         int i = 3;
 
         while (i > 0) {
-            System.out.println("Choose runway, which you want to use:");
+            System.out.println("\nChoose runway, which you want to use:");
             airport.printRunwayList();
             int choice = in.nextInt();
 

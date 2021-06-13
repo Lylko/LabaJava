@@ -40,7 +40,7 @@ public class Airport {
         }
     }
 
-    public Map<String, Runway> getRunwayList(){
+    public Map<String,Runway> getRunwayList(){
         return runwayList;
     }
 

@@ -43,7 +43,7 @@ public class Menu {
 
         int i = 3;
 
-        if (isRunwayExist()) {
+        if (airport.isRunwayExist()) {
 
             String runwayChoice;
 
@@ -56,11 +56,11 @@ public class Menu {
                 String choice = in.nextLine();
                 switch (choice) {
                     case "1":
-                        createRunway();
+                        airport.createRunway();
                         i = checkExit();
                         break;
                     case "2":
-                        runwayChoice = chooseRunway();
+                        runwayChoice = airport.chooseRunway();
                         if (!"error".equals(runwayChoice)) {
                             addAircraft(runwayMap.get(runwayChoice));
                         } else {
@@ -69,7 +69,7 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "3":
-                        runwayChoice = chooseRunway();
+                        runwayChoice = airport.chooseRunway();
                         if (!"error".equals(runwayChoice)) {
                             runwayMap.get(runwayChoice).printAircraftList();
                         } else {
@@ -82,7 +82,7 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "5":
-                        airport.removeRunway(chooseRunway());
+                        airport.removeRunway(airport.chooseRunway());
                         i = checkExit();
                         break;
                     case "e":
@@ -97,33 +97,6 @@ public class Menu {
         }
 
         System.out.println("--------End of program--------");
-    }
-
-    private boolean isRunwayExist(){
-
-        Scanner in = new Scanner(System.in);
-        if (runwayMap.size() > 0){
-            return true;
-        } else {
-            int i = 3;
-            while (i > 0){
-
-                System.out.println("First of all you need to create minimum 1 runway." +
-                        "\n1 - Create runway,\ne - exit.");
-                String choice = in.nextLine();
-
-                if ("1".equals(choice)){
-                    createRunway();
-                    return true;
-                } else if ("e".equals(choice)){
-                    return false;
-                } else {
-                    System.out.println("Incorrect value. Please, try again.\n");
-                    i--;
-                }
-            }
-            return false;
-        }
     }
 
     private int checkExit(){
@@ -144,131 +117,6 @@ public class Menu {
         }
 
         return 0;
-    }
-
-    private String chooseRunway(){
-
-        Scanner in = new Scanner(System.in);
-        int i = 3;
-
-        while (i > 0) {
-            System.out.println("\nChoose runway, which you want to use:");
-            airport.printRunwayList();
-            int choice = in.nextInt();
-
-            if ((choice <= runwayMap.size()) && (choice > 0)) {
-                int j = 1;
-                for (String name : runwayMap.keySet()){
-                    if (choice == j){
-                        return name;
-                    }
-                    j++;
-                }
-            } else {
-                System.out.println("Incorrect value. Please, try again later.");
-                i--;
-            }
-        }
-
-        return "error";
-    }
-
-    private void createRunway(){
-        Scanner in = new Scanner(System.in);
-        int i = 3;
-
-        while (i > 0){
-            System.out.println("\nWhat type of runway you wonna create?\n1 - Flex,\n2 - Rigid," +
-                    "\ne - exit.");
-            String choice = in.nextLine();
-
-            if ("1".equals(choice)){
-                i = 3;
-
-                while (i > 0) {
-
-                    System.out.println("\nChoose type of flex runway:\n1 - HighFlex,\n2 - MediumFlex," +
-                            "\n3 - LowFlex,\n4 - ULowFlex,\ne - exit.");
-                    String typeChoice = in.nextLine();
-
-                    switch (typeChoice) {
-                        case "1":
-                            HighFlex highFlex = new HighFlex();
-                            airport.addRunway(highFlex);
-                            i = 0;
-                            break;
-                        case "2":
-                            MediumFlex mediumFlex = new MediumFlex();
-                            airport.addRunway(mediumFlex);
-                            i = 0;
-                            break;
-                        case "3":
-                            LowFlex lowFlex = new LowFlex();
-                            airport.addRunway(lowFlex);
-                            i = 0;
-                            break;
-                        case "4":
-                            ULowFlex uLowFlex = new ULowFlex();
-                            airport.addRunway(uLowFlex);
-                            i = 0;
-                            break;
-                        case "e":
-                            i = 0;
-                            System.out.println("Exit from the program was initiated.");
-                        default:
-                            System.out.println("Incorrect value. Please, try again.");
-                            i--;
-
-                    }
-                }
-
-            } else if ("2".equals(choice)){
-                i = 3;
-
-                while (i > 0) {
-
-                    System.out.println("\nChoose type of rigid runway:\n1 - HighRigid,\n2 - MediumRigid," +
-                            "\n3 - LowRigid,\n4 - ULowRigid,\ne - exit.");
-                    String typeChoice = in.nextLine();
-
-                    switch (typeChoice) {
-                        case "1":
-                            HighRigid highRigid = new HighRigid();
-                            airport.addRunway(highRigid);
-                            i = 0;
-                            break;
-                        case "2":
-                            MediumRigid mediumRigid = new MediumRigid();
-                            airport.addRunway(mediumRigid);
-                            i = 0;
-                            break;
-                        case "3":
-                            LowRigid lowRigid = new LowRigid();
-                            airport.addRunway(lowRigid);
-                            i = 0;
-                            break;
-                        case "4":
-                            ULowRigid uLowRigid = new ULowRigid();
-                            airport.addRunway(uLowRigid);
-                            i = 0;
-                            break;
-                        case "e":
-                            i = 0;
-                            System.out.println("Exit from the program was initiated.");
-                        default:
-                            System.out.println("Incorrect value. Please, try again.");
-                            i--;
-                    }
-                }
-
-            } else if ("e".equals(choice)){
-                i = 0;
-                System.out.println("Exit from the program was initiated.");
-            } else {
-                System.out.println("Incorrect value. Please, try again.\n");
-                i--;
-            }
-        }
     }
 
     private void addAircraft(Runway runway){

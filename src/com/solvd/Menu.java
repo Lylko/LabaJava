@@ -29,12 +29,12 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private Map<String, Runway> runwayList;
+    private Map<String, Runway> runwayMap;
     private Airport airport;
 
     public Menu(){
         airport = new Airport();
-        runwayList = airport.getRunwayList();
+        runwayMap = airport.getRunwayList();
     }
 
     public void showStartMenu(){
@@ -45,7 +45,7 @@ public class Menu {
 
         if (isRunwayExist()) {
 
-            Runway runway;
+            String runwayChoice;
 
             while (i > 0) {
                 System.out.println("\nChoose what you want to do: " +
@@ -60,13 +60,21 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "2":
-                        runway = runwayList.get(chooseRunway());
-                        addAircraft(runway);
+                        runwayChoice = chooseRunway();
+                        if (!"error".equals(runwayChoice)) {
+                            addAircraft(runwayMap.get(runwayChoice));
+                        } else {
+                            System.out.println("Please, try again later.");
+                        }
                         i = checkExit();
                         break;
                     case "3":
-                        runway = runwayList.get(chooseRunway());
-                        runway.printAircraftList();
+                        runwayChoice = chooseRunway();
+                        if (!"error".equals(runwayChoice)) {
+                            runwayMap.get(runwayChoice).printAircraftList();
+                        } else {
+                            System.out.println("Please, try again later.");
+                        }
                         i = checkExit();
                         break;
                     case "4":
@@ -90,7 +98,7 @@ public class Menu {
     private boolean isRunwayExist(){
 
         Scanner in = new Scanner(System.in);
-        if (runwayList.size() > 0){
+        if (runwayMap.size() > 0){
             return true;
         } else {
             int i = 3;
@@ -144,9 +152,9 @@ public class Menu {
             airport.printRunwayList();
             int choice = in.nextInt();
 
-            if ((choice <= runwayList.size()) && (choice > 0)) {
+            if ((choice <= runwayMap.size()) && (choice > 0)) {
                 int j = 1;
-                for (String name : runwayList.keySet()){
+                for (String name : runwayMap.keySet()){
                     if (choice == j){
                         return name;
                     }

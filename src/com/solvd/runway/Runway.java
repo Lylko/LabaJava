@@ -68,7 +68,7 @@ public abstract class Runway {
         uniqueAircraftSet.add(aircraft);
     }
 
-    public Set<Aircraft> getUniqueAircrafts(){
+    public Set<Aircraft> getUniqueAircraftSet(){
         return uniqueAircraftSet;
     }
 

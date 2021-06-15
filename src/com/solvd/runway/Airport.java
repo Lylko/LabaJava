@@ -46,8 +46,19 @@ public class Airport {
         return runwayMap;
     }
 
+    public void removeRunway(String name){
+        if ( (runwayMap != null) && (runwayMap.size() > 1) ){
+            runwayMap.remove(name);
+            System.out.println(name + " successfully deleted.\n");
+        } else if (runwayMap != null){
+            System.out.println("\nYou need to have more than 1 runway to make this operation.\n");
+        } else {
+            System.out.println("Runway list doesnt exist.");
+        }
+    }
+
     public void printRunwayList(){
-        if ( (runwayMap!=null) && (runwayMap.size()>0) ) {
+        if ( (runwayMap != null) && (runwayMap.size() > 0) ) {
             System.out.println("\n===========================");
             int i = 1;
             for (String name : runwayMap.keySet()) {
@@ -55,7 +66,7 @@ public class Airport {
                 i++;
             }
             System.out.println("===========================");
-        } else if (runwayMap!=null) {
+        } else if (runwayMap != null) {
             System.out.println("Runway list don't have any object.");
         } else {
             System.out.println("Runway list doesnt exist.");

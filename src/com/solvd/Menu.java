@@ -50,8 +50,8 @@ public class Menu {
             while (i > 0) {
                 System.out.println("\nChoose what you want to do: " +
                         "\n1 - Create new runway,\n2 - Add aircraft to runway," +
-                        "\n3 - show created aircrafts,\n4 - show available runways," +
-                        "\ne - exit.");
+                        "\n3 - Show created aircrafts,\n4 - Show available runways," +
+                        "\n5 - Delete runway,\ne - exit.");
 
                 String choice = in.nextLine();
                 switch (choice) {
@@ -79,6 +79,10 @@ public class Menu {
                         break;
                     case "4":
                         airport.printRunwayList();
+                        i = checkExit();
+                        break;
+                    case "5":
+                        airport.removeRunway(chooseRunway());
                         i = checkExit();
                         break;
                     case "e":

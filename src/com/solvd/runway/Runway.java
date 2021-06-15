@@ -16,12 +16,12 @@ public abstract class Runway {
     private final double AIRINDEX = 1.05;
     private List<Military> militaryList;
     private List<Civil> civilList;
-    private Set<Aircraft> uniqueSet;
+    private Set<Aircraft> uniqueAircraftSet;
 
     public Runway(){
         militaryList = new ArrayList<>();
         civilList = new ArrayList<>();
-        uniqueSet = new HashSet<>();
+        uniqueAircraftSet = new HashSet<>();
     }
 
     public void setClassNum(int classNum){
@@ -43,7 +43,7 @@ public abstract class Runway {
     public void addPlane(Civil plane){
         if (isPrintAccess(plane)){
             civilList.add(plane);
-            addToUniqueSet(plane);
+            addUniqueAircraft(plane);
             System.out.println("Aircraft " + plane.getPlaneName() + " created.");
         } else {
             System.out.println(plane.getPlaneName() + " is not suitable for accommodation.");
@@ -53,23 +53,23 @@ public abstract class Runway {
     public void addPlane(Military plane){
         if (isPrintAccess(plane)){
             militaryList.add(plane);
-            addToUniqueSet(plane);
+            addUniqueAircraft(plane);
             System.out.println("Aircraft " + plane.getPlaneName() + " created.");
         } else {
             System.out.println(plane.getPlaneName() + " is not suitable for accommodation.");
         }
     }
 
-    private void addToUniqueSet(Civil aircraft){
-        uniqueSet.add(aircraft);
+    private void addUniqueAircraft(Civil aircraft){
+        uniqueAircraftSet.add(aircraft);
     }
 
-    private void addToUniqueSet(Military aircraft){
-        uniqueSet.add(aircraft);
+    private void addUniqueAircraft(Military aircraft){
+        uniqueAircraftSet.add(aircraft);
     }
 
-    public Set<Aircraft> getUniqueList(){
-        return uniqueSet;
+    public Set<Aircraft> getUniqueAircrafts(){
+        return uniqueAircraftSet;
     }
 
     public List<Civil> getCivilList(){

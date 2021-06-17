@@ -9,16 +9,16 @@ import com.solvd.runway.rigid.LowRigid;
 import com.solvd.runway.rigid.MediumRigid;
 import com.solvd.runway.rigid.ULowRigid;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Airport {
 
     private Map<String,Runway> runwayMap;
+    private Set<Runway> runwaySet;
 
     public Airport(){
         runwayMap = new HashMap<>();
+        runwaySet = new HashSet<>();
     }
 
     public void addRunway(Runway runway){
@@ -34,11 +34,13 @@ public class Airport {
                     System.out.println("This name already exist. Please, try to put another.");
                 } else {
                     runwayMap.put(name, runway);
+                    addToSet(runway);
                     i = 0;
                     System.out.println("Created new runway '" + runway.getRunwayName() + "'.");
                 }
             } else if (runwayMap != null) {
                 runwayMap.put(name, runway);
+                addToSet(runway);
                 i = 0;
                 System.out.println("Created new runway '" + runway.getRunwayName() + "'.");
             } else {
@@ -49,6 +51,7 @@ public class Airport {
         if (i == 0){
             System.out.println("\n---Creating failed.---\n");
         }
+
     }
 
     public Map<String,Runway> getRunwayList(){
@@ -107,6 +110,46 @@ public class Airport {
             }
             return false;
         }
+    }
+
+    public String chooseRunway(){
+
+        Scanner in = new Scanner(System.in);
+        int i = 3;
+
+        while (i > 0) {
+            System.out.println("\nChoose runway, which you want to use:");
+            printRunwayList();
+            int choice = in.nextInt();
+
+            if ((choice <= runwayMap.size()) && (choice > 0)) {
+                int j = 1;
+                for (String name : runwayMap.keySet()){
+                    if (choice == j){
+                        return name;
+                    }
+                    j++;
+                }
+            } else {
+                System.out.println("Incorrect value. Please, try again later.");
+                i--;
+            }
+        }
+
+        return "error";
+    }
+
+    private void addToSet(Runway runway){
+        runwaySet.add(runway);
+    }
+
+    public void printAllTypes(){
+        System.out.println("====================");
+
+        for (Runway runway : runwaySet){
+            System.out.println(runway.getRunwayName());
+        }
+        System.out.println("===================");
     }
 
     public void createRunway(){
@@ -205,33 +248,6 @@ public class Airport {
                 i--;
             }
         }
-    }
-
-    public String chooseRunway(){
-
-        Scanner in = new Scanner(System.in);
-        int i = 3;
-
-        while (i > 0) {
-            System.out.println("\nChoose runway, which you want to use:");
-            printRunwayList();
-            int choice = in.nextInt();
-
-            if ((choice <= runwayMap.size()) && (choice > 0)) {
-                int j = 1;
-                for (String name : runwayMap.keySet()){
-                    if (choice == j){
-                        return name;
-                    }
-                    j++;
-                }
-            } else {
-                System.out.println("Incorrect value. Please, try again later.");
-                i--;
-            }
-        }
-
-        return "error";
     }
 
 }

@@ -21,7 +21,7 @@ public abstract class Runway {
 
     private int classNum;
     private String runwayName;
-    private final double AIRINDEX = 1.05;
+    private final double AIR_INDEX = 1.05;
     private List<Military> militaryList;
     private List<Civil> civilList;
 
@@ -110,12 +110,12 @@ public abstract class Runway {
 
     public boolean isPrintAccess(Military aircraft){
         double airClass = aircraft.getAirClass();
-        return airClass <= (getClassNum() * AIRINDEX);
+        return airClass <= (getClassNum() * AIR_INDEX);
     }
 
     public boolean isPrintAccess(Civil aircraft){
         double airClass = aircraft.getAirClass();
-        return airClass <= (getClassNum() * AIRINDEX);
+        return airClass <= (getClassNum() * AIR_INDEX);
     }
 
     public void printAircraftList(){

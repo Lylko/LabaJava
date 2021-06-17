@@ -2,7 +2,7 @@ package com.solvd.runway.flex;
 
 import com.solvd.runway.Runway;
 
-public class ULowFlex extends Runway {
+public final class ULowFlex extends Runway {
 
     public ULowFlex(){
         setRunwayName("UltraLowFlex");

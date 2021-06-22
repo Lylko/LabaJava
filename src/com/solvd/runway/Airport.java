@@ -1,5 +1,6 @@
 package com.solvd.runway;
 
+import com.solvd.exception.TooManyAttempts;
 import com.solvd.runway.flex.HighFlex;
 import com.solvd.runway.flex.LowFlex;
 import com.solvd.runway.flex.MediumFlex;
@@ -9,6 +10,7 @@ import com.solvd.runway.rigid.LowRigid;
 import com.solvd.runway.rigid.MediumRigid;
 import com.solvd.runway.rigid.ULowRigid;
 
+import java.sql.SQLException;
 import java.util.*;
 
 public class Airport {
@@ -48,9 +50,11 @@ public class Airport {
             }
             i--;
         }
-        if (i == 0){
+        if (i == 0) {
             System.out.println("\n---Creating failed.---\n");
         }
+
+
 
     }
 
@@ -112,7 +116,7 @@ public class Airport {
         }
     }
 
-    public String chooseRunway(){
+    public String chooseRunway() throws TooManyAttempts {
 
         Scanner in = new Scanner(System.in);
         int i = 3;
@@ -136,7 +140,7 @@ public class Airport {
             }
         }
 
-        return "error";
+        throw new TooManyAttempts();
     }
 
     private void addToSet(Runway runway){

@@ -1,5 +1,6 @@
 package com.solvd;
 
+import com.solvd.exception.TooManyAttempts;
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
 
@@ -40,20 +41,18 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "2":
-                        runwayChoice = airport.chooseRunway();
-                        if (!"error".equals(runwayChoice)) {
-                            runwayMap.get(runwayChoice).createAircraft();
-                        } else {
-                            System.out.println("Please, try again later.");
+                        try {
+                            runwayMap.get(airport.chooseRunway()).createAircraft();
+                        } catch (TooManyAttempts ex){
+                            System.out.println(ex.getMessage());
                         }
                         i = checkExit();
                         break;
                     case "3":
-                        runwayChoice = airport.chooseRunway();
-                        if (!"error".equals(runwayChoice)) {
-                            runwayMap.get(runwayChoice).printAircraftList();
-                        } else {
-                            System.out.println("Please, try again later.");
+                        try {
+                            runwayMap.get(airport.chooseRunway()).printAircraftList();
+                        } catch (TooManyAttempts ex){
+                            System.out.println(ex.getMessage());
                         }
                         i = checkExit();
                         break;
@@ -62,7 +61,11 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "5":
-                        airport.removeRunway(airport.chooseRunway());
+                        try {
+                            airport.removeRunway(airport.chooseRunway());
+                        } catch (TooManyAttempts ex){
+                            System.out.println(ex.getMessage());
+                        }
                         i = checkExit();
                         break;
                     case "6":

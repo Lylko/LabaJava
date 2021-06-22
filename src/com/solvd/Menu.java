@@ -25,8 +25,6 @@ public class Menu {
 
         if (airport.isRunwayExist()) {
 
-            String runwayChoice;
-
             while (i > 0) {
                 System.out.println("\nChoose what you want to do: " +
                         "\n1 - Create new runway,\n2 - Add aircraft to runway," +

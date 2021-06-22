@@ -70,7 +70,7 @@ public abstract class Runway {
         if (isPrintAccess(plane)){
             civilList.add(plane);
 
-            civilList.sort(new Comparator<Civil>() {
+            civilList.sort(new Comparator<>() {
                 @Override
                 public int compare(Civil o1, Civil o2) {
                     return o1.getPlaneName().compareTo(o2.getPlaneName());
@@ -87,7 +87,7 @@ public abstract class Runway {
         if (isPrintAccess(plane)){
             militaryList.add(plane);
 
-            militaryList.sort(new Comparator<Military>() {
+            militaryList.sort(new Comparator<>() {
                 @Override
                 public int compare(Military o1, Military o2) {
                     return o1.getPlaneName().compareTo(o2.getPlaneName());

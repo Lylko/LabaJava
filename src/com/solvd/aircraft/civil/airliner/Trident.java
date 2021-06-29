@@ -3,7 +3,6 @@ package com.solvd.aircraft.civil.airliner;
 public class Trident extends Airliner {
 
     public Trident(){
-        setMaxHeight(11);
         setMaxSpeed(959);
         setPassengerCap(115);
         setCountryName("UK");

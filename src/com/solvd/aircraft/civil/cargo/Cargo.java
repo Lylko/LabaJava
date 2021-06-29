@@ -7,15 +7,14 @@ public class Cargo extends Civil {
     private int maxLiftCap;
 
     public Cargo(){
-        setMaxHeight(11);
         setMaxSpeed(750);
         setMaxLiftCap(155000);
         setCountryName("Solvd");
         setPlaneName("Example");
     }
 
-    public Cargo(int maxSpeed, int maxHeight, String countryName, int maxLiftCap, String planeName){
-        super(maxSpeed, maxHeight, countryName, planeName);
+    public Cargo(int maxSpeed, String countryName, int maxLiftCap, String planeName){
+        super(maxSpeed, countryName, planeName);
         this.maxLiftCap = maxLiftCap;
     }
 
@@ -35,7 +34,6 @@ public class Cargo extends Civil {
         return ("----------------------Cargo aircraft '" + getPlaneName() + "'-----------------------\n" +
                 "The aircraft was developed in " + getCountryName() +
                 "\nMaximum speed of this aircraft is " + getMaxSpeed() + " km/h\n" +
-                "Maximum flight altitude of this aircraft is " + getMaxHeight() + " km\n" +
                 "Maximum lifting capacity of this cargo aircraft is " + getMaxLiftCap() + " kg\n" +
                 "------------------------------------------------------------------");
     }

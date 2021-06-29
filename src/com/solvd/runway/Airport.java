@@ -34,6 +34,8 @@ public class Airport {
             if ((runwayMap != null) && (runwayMap.size() > 0)) {
                 if (runwayMap.containsKey(name)) {
                     System.out.println("This name already exist. Please, try to put another.");
+                } else if ("error".equals(name)){
+                    System.out.println("This name cannot be used. Please, try to put another.");
                 } else {
                     runwayMap.put(name, runway);
                     addToSet(runway);
@@ -116,7 +118,7 @@ public class Airport {
         }
     }
 
-    public String chooseRunway() throws TooManyAttempts {
+    public String chooseRunway(){
 
         Scanner in = new Scanner(System.in);
         int i = 3;
@@ -140,7 +142,7 @@ public class Airport {
             }
         }
 
-        throw new TooManyAttempts();
+        return "error";
     }
 
     private void addToSet(Runway runway){

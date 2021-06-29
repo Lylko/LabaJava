@@ -3,7 +3,6 @@ package com.solvd.aircraft.civil.cargo;
 public class Beluga extends Cargo {
 
     public Beluga(){
-        setMaxHeight(11);
         setMaxSpeed(750);
         setMaxLiftCap(155000);
         setCountryName("France");

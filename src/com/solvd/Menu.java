@@ -1,6 +1,5 @@
 package com.solvd;
 
-import com.solvd.exception.TooManyAttempts;
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
 
@@ -22,10 +21,12 @@ public class Menu {
         Scanner in = new Scanner(System.in);
 
         int i = 3;
+        String runwayChoice;
 
         if (airport.isRunwayExist()) {
 
             while (i > 0) {
+
                 System.out.println("\nChoose what you want to do: " +
                         "\n1 - Create new runway,\n2 - Add aircraft to runway," +
                         "\n3 - Show created aircrafts,\n4 - Show available runways," +
@@ -39,18 +40,20 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "2":
-                        try {
-                            runwayMap.get(airport.chooseRunway()).createAircraft();
-                        } catch (TooManyAttempts ex){
-                            System.out.println(ex.getMessage());
+                        runwayChoice = airport.chooseRunway();
+                        if (!"error".equals(runwayChoice)){
+                            runwayMap.get(runwayChoice).createAircraft();
+                        } else {
+                            System.out.println("Try again later.");
                         }
                         i = checkExit();
                         break;
                     case "3":
-                        try {
-                            runwayMap.get(airport.chooseRunway()).printAircraftList();
-                        } catch (TooManyAttempts ex){
-                            System.out.println(ex.getMessage());
+                        runwayChoice = airport.chooseRunway();
+                        if (!"error".equals(runwayChoice)){
+                            runwayMap.get(runwayChoice).printAircraftList();
+                        } else {
+                            System.out.println("Try again later.");
                         }
                         i = checkExit();
                         break;
@@ -59,10 +62,11 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "5":
-                        try {
-                            airport.removeRunway(airport.chooseRunway());
-                        } catch (TooManyAttempts ex){
-                            System.out.println(ex.getMessage());
+                        runwayChoice = airport.chooseRunway();
+                        if (!"error".equals(runwayChoice)){
+                            airport.removeRunway(runwayChoice);
+                        } else {
+                            System.out.println("Try again later.");
                         }
                         i = checkExit();
                         break;

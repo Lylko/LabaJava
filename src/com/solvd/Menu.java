@@ -2,7 +2,10 @@ package com.solvd;
 
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
+import com.solvd.utils.Logging;
+import com.solvd.utils.PropertiesLoad;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,19 +14,21 @@ public class Menu {
     private Map<String, Runway> runwayMap;
     private Airport airport;
 
-    public Menu(){
+    public Menu() {
         airport = new Airport();
         runwayMap = airport.getRunwayList();
     }
 
     public void showStartMenu(){
-
         Scanner in = new Scanner(System.in);
 
         int i = 3;
         String runwayChoice;
+        ArrayList<String> values = Logging.registration();
 
-        if (airport.isRunwayExist()) {
+        if (values.size() == 2 && airport.isRunwayExist()) {
+
+            PropertiesLoad.setValueFromProperties(values);
 
             while (i > 0) {
 
@@ -36,17 +41,21 @@ public class Menu {
                 String choice = in.nextLine();
                 switch (choice) {
                     case "1":
-                        airport.createRunway();
-                        i = checkExit();
+                        if (Logging.isRightPassword()) {
+                            airport.createRunway();
+                            i = checkExit();
+                        }
                         break;
                     case "2":
-                        runwayChoice = airport.chooseRunway();
-                        if (!"error".equals(runwayChoice)){
-                            runwayMap.get(runwayChoice).createAircraft();
-                        } else {
-                            System.out.println("Try again later.");
+                        if (Logging.isRightPassword()) {
+                            runwayChoice = airport.chooseRunway();
+                            if (!"error".equals(runwayChoice)) {
+                                runwayMap.get(runwayChoice).createAircraft();
+                            } else {
+                                System.out.println("Try again later.");
+                            }
+                            i = checkExit();
                         }
-                        i = checkExit();
                         break;
                     case "3":
                         runwayChoice = airport.chooseRunway();
@@ -62,13 +71,15 @@ public class Menu {
                         i = checkExit();
                         break;
                     case "5":
-                        runwayChoice = airport.chooseRunway();
-                        if (!"error".equals(runwayChoice)){
-                            airport.removeRunway(runwayChoice);
-                        } else {
-                            System.out.println("Try again later.");
+                        if (Logging.isRightPassword()) {
+                            runwayChoice = airport.chooseRunway();
+                            if (!"error".equals(runwayChoice)) {
+                                airport.removeRunway(runwayChoice);
+                            } else {
+                                System.out.println("Try again later.");
+                            }
+                            i = checkExit();
                         }
-                        i = checkExit();
                         break;
                     case "6":
                         airport.printAllTypes();
@@ -83,6 +94,8 @@ public class Menu {
                         break;
                 }
             }
+        } else if (values.size() != 2) {
+            System.out.println("Incorrect login or password. Please, try again later.");
         }
 
         System.out.println("--------End of program--------");

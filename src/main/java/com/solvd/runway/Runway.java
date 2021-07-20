@@ -129,12 +129,13 @@ public abstract class Runway {
                     "----------------------------\n");
 
             for (Civil aircraft : civilList) {
-                System.out.println(aircraft.getPlaneName());
+                LOGGER.info(aircraft.getPlaneName());
             }
         } else if (civilList != null){
             LOGGER.info("\n------No civil aircrafts------\n");
+
         } else {
-            LOGGER.info("Runway list doesnt exist.");
+            LOGGER.error("Runway list doesnt exist.");
         }
 
         if ( (civilList != null) && (militaryList.size() > 0) ) {
@@ -142,12 +143,12 @@ public abstract class Runway {
                     "----------------------------\n");
 
             for (Military aircraft : militaryList) {
-                System.out.println(aircraft.getPlaneName());
+                LOGGER.info(aircraft.getPlaneName());
             }
         } else if (civilList != null){
             LOGGER.info("\n------No military aircrafts------\n");
         } else {
-            LOGGER.info("Runway list doesnt exist.");
+            LOGGER.error("Runway list doesnt exist.");
         }
     }
 
@@ -159,14 +160,14 @@ public abstract class Runway {
 
         while (i == 0) {
 
-            System.out.println("Choose type of aircraft: \n 0 - Civil, 1 - Military, e - Exit.");
+            LOGGER.info("Choose type of aircraft: \n 0 - Civil, 1 - Military, e - Exit.");
             String choice = in.nextLine();
 
             if ("0".equals(choice)) {
 
                 while (i == 0) {
 
-                    System.out.println("Choose type of civil aircraft: " +
+                    LOGGER.info("Choose type of civil aircraft: " +
                             "\n 0 - Cargo, 1 - Airliner, e - Exit.");
                     String secondChoice = in.nextLine();
 
@@ -174,7 +175,7 @@ public abstract class Runway {
 
                         while (i == 0) {
 
-                            System.out.println("Choose cargo aircraft:" +
+                            LOGGER.info("Choose cargo aircraft:" +
                                     "\n 0 - Beluga, 1 - Cossack, 2 - Globemaster, e - Exit.");
                             String cargoChoice = in.nextLine();
 
@@ -199,7 +200,7 @@ public abstract class Runway {
                                     i = 1;
                                     break;
                                 default:
-                                    System.out.println("Incorrect value. Please, try again.");
+                                    LOGGER.info("Incorrect value. Please, try again.");
                                     break;
 
                             }
@@ -209,7 +210,7 @@ public abstract class Runway {
 
                         while (i == 0) {
 
-                            System.out.println("Choose cargo aircraft:" +
+                            LOGGER.info("Choose cargo aircraft:" +
                                     "\n 0 - Airbus, 1 - Xiangfeng, 2 - Trident, e - Exit.");
                             String airlinerChoice = in.nextLine();
 
@@ -234,7 +235,7 @@ public abstract class Runway {
                                     i = 1;
                                     break;
                                 default:
-                                    System.out.println("Incorrect value. Please, try again.");
+                                    LOGGER.info("Incorrect value. Please, try again.");
                                     break;
 
                             }
@@ -243,14 +244,14 @@ public abstract class Runway {
                         LOGGER.info("Exit from the program was initiated.");
                         i = 1;
                     } else {
-                        System.out.println("Incorrect value. Please, try again.");
+                        LOGGER.info("Incorrect value. Please, try again.");
                     }
                 }
             } else if ("1".equals(choice)) {
 
                 while (i == 0) {
 
-                    System.out.println("Choose type of military aircraft: " +
+                    LOGGER.info("Choose type of military aircraft: " +
                             "\n 0 - Bomber, 1 - Stormtrooper, e - Exit.");
                     String secondChoice = in.nextLine();
 
@@ -258,7 +259,7 @@ public abstract class Runway {
 
                         while (i == 0) {
 
-                            System.out.println("Choose bomber aircraft:" +
+                            LOGGER.info("Choose bomber aircraft:" +
                                     "\n 0 - Fencer, 1 - Nighthawk, 2 - Xian, e - Exit.");
                             String bomberChoice = in.nextLine();
 
@@ -283,7 +284,7 @@ public abstract class Runway {
                                     i = 1;
                                     break;
                                 default:
-                                    System.out.println("Incorrect value. Please, try again.");
+                                    LOGGER.info("Incorrect value. Please, try again.");
                                     break;
 
                             }
@@ -293,7 +294,7 @@ public abstract class Runway {
 
                         while (i == 0) {
 
-                            System.out.println("Choose stormtrooper aircraft:" +
+                            LOGGER.info("Choose stormtrooper aircraft:" +
                                     "\n 0 - Dragonfly, 1 - Buccaneer, 2 - Skyhawk, e - Exit.");
                             String stormChoice = in.nextLine();
 
@@ -318,7 +319,7 @@ public abstract class Runway {
                                     i = 1;
                                     break;
                                 default:
-                                    System.out.println("Incorrect value. Please, try again.");
+                                    LOGGER.info("Incorrect value. Please, try again.");
                                     break;
 
                             }
@@ -327,7 +328,7 @@ public abstract class Runway {
                         LOGGER.info("Exit from the program was initiated.");
                         i = 1;
                     } else {
-                        System.out.println("Incorrect value. Please, try again.");
+                        LOGGER.info("Incorrect value. Please, try again.");
                     }
                 }
 
@@ -335,7 +336,7 @@ public abstract class Runway {
                 LOGGER.info("Exit from the program was initiated.");
                 i = 1;
             } else {
-                System.out.println("Incorrect value. Please, try again.");
+                LOGGER.info("Incorrect value. Please, try again.");
             }
 
         }

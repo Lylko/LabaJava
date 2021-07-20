@@ -1,18 +1,22 @@
 package com.solvd.utils;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Logging {
 
+    final static Logger LOGGER = Logger.getLogger(Logging.class);
+
     public static ArrayList<String> registration(){
         Scanner in = new Scanner(System.in);
 
-        System.out.println("You need to register before using:\n");
+        LOGGER.info("You need to register before using:\n");
         ArrayList<String> values = new ArrayList<>();
         int i = 3;
         while (i > 0){
-            System.out.println("Login (4-20 characters):");
+            LOGGER.info("Login (4-20 characters):");
             String choice = in.nextLine();
             if (choice != null && choice.length() >= 4 && choice.length() <= 20) {
                 values.add(choice);
@@ -25,7 +29,7 @@ public class Logging {
         }
         i=3;
         while (i > 0){
-            System.out.println("Password (8-20 characters): ");
+            LOGGER.info("Password (8-20 characters): ");
             String choice = in.nextLine();
             if (choice != null && choice.length() >= 8 && choice.length() <= 20) {
                 values.add(choice);
@@ -39,14 +43,14 @@ public class Logging {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("\n------------------------------\n");
+        LOGGER.info("\n------------------------------\n");
         int j = 3;
 
         while (j > 0) {
             ArrayList<String> values = new ArrayList<>();
             int i = 3;
             while (i > 0) {
-                System.out.println("Login (4-20 characters):");
+                LOGGER.info("Login (4-20 characters):");
                 String choice = in.nextLine();
                 if (choice != null && choice.length() >= 4 && choice.length() <= 20) {
                     if (choice.equals(PropertiesLoad.getValueFromProperties("login"))) {
@@ -58,7 +62,7 @@ public class Logging {
             }
             i = 3;
             while (i > 0) {
-                System.out.println("Password (8-20 characters): ");
+                LOGGER.info("Password (8-20 characters): ");
                 String choice = in.nextLine();
                 if (choice != null && choice.length() >= 8 && choice.length() <= 20) {
                     if (choice.equals(PropertiesLoad.getValueFromProperties("password"))) {
@@ -68,14 +72,14 @@ public class Logging {
                 }
             }
             if (values.size() < 2){
-                System.out.println("Login or password is not correct.");
+                LOGGER.info("Login or password is not correct.");
                 j--;
             } else {
                 return true;
             }
         }
-        System.out.println("\nToo many tries.");
-        System.out.println("\n------------------------------\n");
+        LOGGER.info("\nToo many tries.");
+        LOGGER.info("\n------------------------------\n");
         return false;
 
     }

@@ -9,11 +9,13 @@ import com.solvd.runway.rigid.HighRigid;
 import com.solvd.runway.rigid.LowRigid;
 import com.solvd.runway.rigid.MediumRigid;
 import com.solvd.runway.rigid.ULowRigid;
+import org.apache.log4j.Logger;
 
-import java.sql.SQLException;
 import java.util.*;
 
 public class Airport {
+
+    final static Logger LOGGER = Logger.getLogger(Airport.class);
 
     private Map<String,Runway> runwayMap;
     private Set<Runway> runwaySet;
@@ -67,27 +69,27 @@ public class Airport {
     public void removeRunway(String name){
         if ( (runwayMap != null) && (runwayMap.size() > 1) ){
             runwayMap.remove(name);
-            System.out.println(name + " successfully deleted.\n");
+            LOGGER.info(name + " successfully deleted.\n");
         } else if (runwayMap != null){
             System.out.println("\nYou need to have more than 1 runway to make this operation.\n");
         } else {
-            System.out.println("Runway list doesnt exist.");
+            LOGGER.info("Runway list doesnt exist.");
         }
     }
 
     public void printRunwayList(){
         if ( (runwayMap != null) && (runwayMap.size() > 0) ) {
-            System.out.println("\n===========================");
+            LOGGER.info("\n===========================");
             int i = 1;
             for (String name : runwayMap.keySet()) {
-                System.out.println(i + " - " + name + " (" + runwayMap.get(name).getRunwayName() + ")");
+                LOGGER.info(i + " - " + name + " (" + runwayMap.get(name).getRunwayName() + ")");
                 i++;
             }
-            System.out.println("===========================");
+            LOGGER.info("===========================");
         } else if (runwayMap != null) {
-            System.out.println("Runway list don't have any object.");
+            LOGGER.info("Runway list don't have any object.");
         } else {
-            System.out.println("Runway list doesnt exist.");
+            LOGGER.info("Runway list doesnt exist.");
         }
     }
 
@@ -150,12 +152,12 @@ public class Airport {
     }
 
     public void printAllTypes(){
-        System.out.println("====================");
+        LOGGER.info("====================");
 
         for (Runway runway : runwaySet){
-            System.out.println(runway.getRunwayName());
+            LOGGER.info(runway.getRunwayName());
         }
-        System.out.println("===================");
+        LOGGER.info("===================");
     }
 
     public void createRunway(){
@@ -199,7 +201,7 @@ public class Airport {
                             break;
                         case "e":
                             i = 0;
-                            System.out.println("Exit from the program was initiated.");
+                            LOGGER.info("Exit from the program was initiated.");
                         default:
                             System.out.println("Incorrect value. Please, try again.");
                             i--;
@@ -239,7 +241,7 @@ public class Airport {
                             break;
                         case "e":
                             i = 0;
-                            System.out.println("Exit from the program was initiated.");
+                            LOGGER.info("Exit from the program was initiated.");
                         default:
                             System.out.println("Incorrect value. Please, try again.");
                             i--;
@@ -248,7 +250,7 @@ public class Airport {
 
             } else if ("e".equals(choice)){
                 i = 0;
-                System.out.println("Exit from the program was initiated.");
+                LOGGER.info("Exit from the program was initiated.");
             } else {
                 System.out.println("Incorrect value. Please, try again.\n");
                 i--;

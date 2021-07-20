@@ -35,27 +35,27 @@ public class Airport {
 
             if ((runwayMap != null) && (runwayMap.size() > 0)) {
                 if (runwayMap.containsKey(name)) {
-                    System.out.println("This name already exist. Please, try to put another.");
+                    LOGGER.info("This name already exist. Please, try to put another.");
                 } else if ("error".equals(name)){
-                    System.out.println("This name cannot be used. Please, try to put another.");
+                    LOGGER.info("This name cannot be used. Please, try to put another.");
                 } else {
                     runwayMap.put(name, runway);
                     addToSet(runway);
                     i = 0;
-                    System.out.println("Created new runway '" + runway.getRunwayName() + "'.");
+                    LOGGER.info("Created new runway '" + runway.getRunwayName() + "'.");
                 }
             } else if (runwayMap != null) {
                 runwayMap.put(name, runway);
                 addToSet(runway);
                 i = 0;
-                System.out.println("Created new runway '" + runway.getRunwayName() + "'.");
+                LOGGER.info("Created new runway '" + runway.getRunwayName() + "'.");
             } else {
-                System.out.println("Runway list doesnt exist.");
+                LOGGER.info("Runway list doesnt exist.");
             }
             i--;
         }
         if (i == 0) {
-            System.out.println("\n---Creating failed.---\n");
+            LOGGER.info("\n---Creating failed.---\n");
         }
 
 
@@ -71,9 +71,9 @@ public class Airport {
             runwayMap.remove(name);
             LOGGER.info(name + " successfully deleted.\n");
         } else if (runwayMap != null){
-            System.out.println("\nYou need to have more than 1 runway to make this operation.\n");
+            LOGGER.info("\nYou need to have more than 1 runway to make this operation.\n");
         } else {
-            LOGGER.info("Runway list doesnt exist.");
+            LOGGER.error("Runway list doesnt exist.");
         }
     }
 
@@ -89,7 +89,7 @@ public class Airport {
         } else if (runwayMap != null) {
             LOGGER.info("Runway list don't have any object.");
         } else {
-            LOGGER.info("Runway list doesnt exist.");
+            LOGGER.error("Runway list doesnt exist.");
         }
     }
 
@@ -102,7 +102,7 @@ public class Airport {
             int i = 3;
             while (i > 0){
 
-                System.out.println("First of all you need to create minimum 1 runway." +
+                LOGGER.info("First of all you need to create minimum 1 runway." +
                         "\n1 - Create runway,\ne - exit.");
                 String choice = in.nextLine();
 
@@ -112,7 +112,7 @@ public class Airport {
                 } else if ("e".equals(choice)){
                     return false;
                 } else {
-                    System.out.println("Incorrect value. Please, try again.\n");
+                    LOGGER.info("Incorrect value. Please, try again.\n");
                     i--;
                 }
             }
@@ -126,7 +126,7 @@ public class Airport {
         int i = 3;
 
         while (i > 0) {
-            System.out.println("\nChoose runway, which you want to use:");
+            LOGGER.info("\nChoose runway, which you want to use:");
             printRunwayList();
             int choice = in.nextInt();
 
@@ -139,7 +139,7 @@ public class Airport {
                     j++;
                 }
             } else {
-                System.out.println("Incorrect value. Please, try again later.");
+                LOGGER.info("Incorrect value. Please, try again later.");
                 i--;
             }
         }
@@ -165,7 +165,7 @@ public class Airport {
         int i = 3;
 
         while (i > 0){
-            System.out.println("\nWhat type of runway you wonna create?\n1 - Flex,\n2 - Rigid," +
+            LOGGER.info("\nWhat type of runway you wonna create?\n1 - Flex,\n2 - Rigid," +
                     "\ne - exit.");
             String choice = in.nextLine();
 
@@ -174,7 +174,7 @@ public class Airport {
 
                 while (i > 0) {
 
-                    System.out.println("\nChoose type of flex runway:\n1 - HighFlex,\n2 - MediumFlex," +
+                    LOGGER.info("\nChoose type of flex runway:\n1 - HighFlex,\n2 - MediumFlex," +
                             "\n3 - LowFlex,\n4 - ULowFlex,\ne - exit.");
                     String typeChoice = in.nextLine();
 
@@ -203,7 +203,7 @@ public class Airport {
                             i = 0;
                             LOGGER.info("Exit from the program was initiated.");
                         default:
-                            System.out.println("Incorrect value. Please, try again.");
+                            LOGGER.info("Incorrect value. Please, try again.");
                             i--;
 
                     }
@@ -214,7 +214,7 @@ public class Airport {
 
                 while (i > 0) {
 
-                    System.out.println("\nChoose type of rigid runway:\n1 - HighRigid,\n2 - MediumRigid," +
+                    LOGGER.info("\nChoose type of rigid runway:\n1 - HighRigid,\n2 - MediumRigid," +
                             "\n3 - LowRigid,\n4 - ULowRigid,\ne - exit.");
                     String typeChoice = in.nextLine();
 
@@ -243,7 +243,7 @@ public class Airport {
                             i = 0;
                             LOGGER.info("Exit from the program was initiated.");
                         default:
-                            System.out.println("Incorrect value. Please, try again.");
+                            LOGGER.info("Incorrect value. Please, try again.");
                             i--;
                     }
                 }
@@ -252,7 +252,7 @@ public class Airport {
                 i = 0;
                 LOGGER.info("Exit from the program was initiated.");
             } else {
-                System.out.println("Incorrect value. Please, try again.\n");
+                LOGGER.info("Incorrect value. Please, try again.\n");
                 i--;
             }
         }

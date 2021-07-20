@@ -55,7 +55,7 @@ public class Menu {
                             if (!"error".equals(runwayChoice)) {
                                 runwayMap.get(runwayChoice).createAircraft();
                             } else {
-                                System.out.println("Try again later.");
+                                LOGGER.info("Try again later.");
                             }
                             i = checkExit();
                         }
@@ -65,7 +65,7 @@ public class Menu {
                         if (!"error".equals(runwayChoice)){
                             runwayMap.get(runwayChoice).printAircraftList();
                         } else {
-                            System.out.println("Try again later.");
+                            LOGGER.info("Try again later.");
                         }
                         i = checkExit();
                         break;
@@ -79,7 +79,7 @@ public class Menu {
                             if (!"error".equals(runwayChoice)) {
                                 airport.removeRunway(runwayChoice);
                             } else {
-                                System.out.println("Try again later.");
+                                LOGGER.info("Try again later.");
                             }
                             i = checkExit();
                         }
@@ -92,17 +92,16 @@ public class Menu {
                         i = 0;
                         break;
                     default:
-                        System.out.println("Incorrect value. Please, try again.");
+                        LOGGER.info("Incorrect value. Please, try again.");
                         i--;
                         break;
                 }
             }
         } else if (values.size() != 2) {
-            System.out.println("Incorrect login or password. Please, try again later.");
+            LOGGER.info("Incorrect login or password. Please, try again later.");
         }
 
         LOGGER.info("--------End of program--------");
-//        System.out.println("--------End of program--------");
     }
 
     private int checkExit(){
@@ -110,14 +109,14 @@ public class Menu {
         int i = 3;
 
         while(i > 0) {
-            System.out.println("\nDo you want to make something else?\ny - yes,\nn - no.");
+            LOGGER.info("\nDo you want to make something else?\ny - yes,\nn - no.");
             String choice = in.nextLine();
             if ("y".equals(choice)) {
                 return 3;
             } else if ("n".equals(choice)) {
                 return 0;
             } else {
-                System.out.println("Incorrect value. Please, try again.\n");
+                LOGGER.info("Incorrect value. Please, try again.\n");
                 i--;
             }
         }

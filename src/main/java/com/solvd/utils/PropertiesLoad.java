@@ -14,7 +14,7 @@ public class PropertiesLoad {
         FileInputStream fileInp = null;
 
         try {
-            fileInp = new FileInputStream("config.properties");
+            fileInp = new FileInputStream("src/main/resources/config.properties");
             properties.load(fileInp);
             return properties.getProperty(key);
         } catch (IOException ex) {
@@ -29,7 +29,7 @@ public class PropertiesLoad {
         Properties properties = new Properties();
 
         try {
-            FileOutputStream fileOut = new FileOutputStream("config.properties");
+            FileOutputStream fileOut = new FileOutputStream("src/main/resources/config.properties");
             properties.setProperty("login", values.get(0));
             properties.setProperty("password", values.get(1));
             properties.store(fileOut, "");

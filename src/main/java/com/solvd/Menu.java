@@ -4,12 +4,15 @@ import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
 import com.solvd.utils.Logging;
 import com.solvd.utils.PropertiesLoad;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Menu {
+
+    final static Logger LOGGER = Logger.getLogger(Menu.class);
 
     private Map<String, Runway> runwayMap;
     private Airport airport;
@@ -98,7 +101,8 @@ public class Menu {
             System.out.println("Incorrect login or password. Please, try again later.");
         }
 
-        System.out.println("--------End of program--------");
+        LOGGER.info("--------End of program--------");
+//        System.out.println("--------End of program--------");
     }
 
     private int checkExit(){

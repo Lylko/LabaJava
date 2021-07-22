@@ -1,6 +1,5 @@
 package com.solvd.runway;
 
-import com.solvd.Menu;
 import com.solvd.aircraft.civil.Civil;
 import com.solvd.aircraft.civil.airliner.Airbus;
 import com.solvd.aircraft.civil.airliner.Trident;
@@ -23,8 +22,8 @@ public abstract class Runway {
 
     final static Logger LOGGER = Logger.getLogger(Runway.class);
 
+    private String runwayType;
     private int classNum;
-    private String runwayName;
     private final double AIR_INDEX = 1.05;
     private List<Military> militaryList;
     private List<Civil> civilList;
@@ -39,7 +38,7 @@ public abstract class Runway {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Runway runway = (Runway) o;
-        return Objects.equals(runwayName, runway.runwayName);
+        return Objects.equals(runwayType, runway.runwayType);
     }
 
     @Override
@@ -47,8 +46,8 @@ public abstract class Runway {
         int i = 0;
         int result = 0;
 
-        while (i < runwayName.length()){
-            result += 31 * runwayName.charAt(i) * (i + 1);
+        while (i < runwayType.length()){
+            result += 31 * runwayType.charAt(i) * (i + 1);
             i++;
         }
         return result;
@@ -58,12 +57,12 @@ public abstract class Runway {
         this.classNum = classNum;
     }
 
-    protected void setRunwayName(String name){
-        this.runwayName = name;
+    protected void setRunwayType(String name){
+        this.runwayType = name;
     }
 
-    public String getRunwayName(){
-        return runwayName;
+    public String getRunwayType(){
+        return runwayType;
     }
 
     public int getClassNum(){

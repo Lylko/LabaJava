@@ -5,7 +5,7 @@ import com.solvd.runway.Runway;
 public final class LowRigid extends Runway {
 
     public LowRigid(){
-        setRunwayName("LowRigid");
+        setRunwayType("LowRigid");
         setClassNum(40);
     }
 

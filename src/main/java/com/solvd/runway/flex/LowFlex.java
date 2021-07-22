@@ -5,7 +5,7 @@ import com.solvd.runway.Runway;
 public final class LowFlex extends Runway {
 
     public LowFlex(){
-        setRunwayName("LowFlex");
+        setRunwayType("LowFlex");
         setClassNum(6);
     }
 

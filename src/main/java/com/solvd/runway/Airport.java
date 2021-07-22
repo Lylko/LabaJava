@@ -1,6 +1,5 @@
 package com.solvd.runway;
 
-import com.solvd.exception.TooManyAttempts;
 import com.solvd.runway.flex.HighFlex;
 import com.solvd.runway.flex.LowFlex;
 import com.solvd.runway.flex.MediumFlex;
@@ -42,13 +41,13 @@ public class Airport {
                     runwayMap.put(name, runway);
                     addToSet(runway);
                     i = 0;
-                    LOGGER.info("Created new runway '" + runway.getRunwayName() + "'.");
+                    LOGGER.info("Created new runway '" + runway.getRunwayType() + "'.");
                 }
             } else if (runwayMap != null) {
                 runwayMap.put(name, runway);
                 addToSet(runway);
                 i = 0;
-                LOGGER.info("Created new runway '" + runway.getRunwayName() + "'.");
+                LOGGER.info("Created new runway '" + runway.getRunwayType() + "'.");
             } else {
                 LOGGER.info("Runway list doesnt exist.");
             }
@@ -82,7 +81,7 @@ public class Airport {
             LOGGER.info("\n===========================");
             int i = 1;
             for (String name : runwayMap.keySet()) {
-                LOGGER.info(i + " - " + name + " (" + runwayMap.get(name).getRunwayName() + ")");
+                LOGGER.info(i + " - " + name + " (" + runwayMap.get(name).getRunwayType() + ")");
                 i++;
             }
             LOGGER.info("===========================");
@@ -155,7 +154,7 @@ public class Airport {
         LOGGER.info("====================");
 
         for (Runway runway : runwaySet){
-            LOGGER.info(runway.getRunwayName());
+            LOGGER.info(runway.getRunwayType());
         }
         LOGGER.info("===================");
     }

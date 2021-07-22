@@ -1,0 +1,49 @@
+{
+  "runwayList":
+  {
+    "First line":
+    {
+      "runwayType":"HighRigid",
+      "classNum":150,
+      "militaryList":
+      [
+        {
+          "maxSpeed":1040,
+          "maxHeight":12,
+          "countryName":"UK",
+          "planeName":"Buccaneer",
+          "airClass":17,
+          "numSuspPoints":4
+        }
+      ],
+      "civilList":
+      [
+        {
+          "maxSpeed":750,
+          "countryName":"France",
+          "planeName":"Beluga",
+          "airClass":45,
+          "maxLiftCap":155000
+        }
+      ]
+    },
+    "Flex line":
+    {
+      "runwayType":"HighFlex",
+      "classNum":15,
+      "militaryList":
+      [
+        {
+          "maxSpeed":816,
+          "maxHeight":13,
+          "countryName":"UK",
+          "planeName":"Dragonfly",
+          "airClass":14,
+          "numSuspPoints":8
+        }
+      ],
+      "civilList":[]
+    }
+  },
+  "runwayExist":true
+}

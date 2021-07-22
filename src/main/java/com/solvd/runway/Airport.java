@@ -14,7 +14,7 @@ import java.util.*;
 
 public class Airport {
 
-    final static Logger LOGGER = Logger.getLogger(Airport.class);
+    private final static Logger LOGGER = Logger.getLogger(Airport.class);
 
     private Map<String,Runway> runwayMap;
     private Set<Runway> runwaySet;

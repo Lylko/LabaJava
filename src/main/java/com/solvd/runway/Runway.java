@@ -20,7 +20,7 @@ import java.util.*;
 
 public abstract class Runway {
 
-    final static Logger LOGGER = Logger.getLogger(Runway.class);
+    private final static Logger LOGGER = Logger.getLogger(Runway.class);
 
     private String runwayType;
     private int classNum;

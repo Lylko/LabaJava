@@ -9,13 +9,12 @@ import com.solvd.utils.PropertiesLoad;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Menu {
 
-    final static Logger LOGGER = Logger.getLogger(Menu.class);
+    private final static Logger LOGGER = Logger.getLogger(Menu.class);
 
     private Map<String, Runway> runwayMap;
     private Airport airport;

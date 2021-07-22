@@ -2,6 +2,8 @@ package com.solvd;
 
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
+import com.solvd.runway.rigid.HighRigid;
+import com.solvd.utils.JsonExec;
 import com.solvd.utils.Logging;
 import com.solvd.utils.PropertiesLoad;
 import org.apache.log4j.Logger;
@@ -12,7 +14,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    final static Logger LOGGER = Logger.getLogger(Menu.class);
+    private final static Logger LOGGER = Logger.getLogger(Menu.class);
 
     private Map<String, Runway> runwayMap;
     private Airport airport;
@@ -23,6 +25,7 @@ public class Menu {
     }
 
     public void showStartMenu(){
+
         Scanner in = new Scanner(System.in);
 
         int i = 3;
@@ -101,7 +104,10 @@ public class Menu {
             LOGGER.info("Incorrect login or password. Please, try again later.");
         }
 
+        JsonExec.convertJavaToJsonFile(airport, "target/test.json");
+
         LOGGER.info("--------End of program--------");
+
     }
 
     private int checkExit(){

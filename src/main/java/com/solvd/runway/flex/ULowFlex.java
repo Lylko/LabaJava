@@ -5,7 +5,7 @@ import com.solvd.runway.Runway;
 public final class ULowFlex extends Runway {
 
     public ULowFlex(){
-        setRunwayName("UltraLowFlex");
+        setRunwayType("UltraLowFlex");
         setClassNum(3);
     }
 

@@ -2,6 +2,8 @@ package com.solvd.aircraft.civil.airliner;
 
 import com.solvd.aircraft.civil.Civil;
 
+import java.io.StringReader;
+
 public class Airliner extends Civil {
 
     private int passengerCap;
@@ -11,6 +13,7 @@ public class Airliner extends Civil {
         setPassengerCap(280);
         setCountryName("Solvd");
         setPlaneName("Example");
+        setAirType("Airliner");
     }
 
     public Airliner(int maxSpeed, String countryName, int passengerCap, String planeName){

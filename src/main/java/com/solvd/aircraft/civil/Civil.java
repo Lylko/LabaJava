@@ -8,6 +8,7 @@ public abstract class Civil implements Aircraft{
     private String countryName;
     private String planeName;
     private int airClass;
+    private String airType;
 
     public Civil(){
 
@@ -31,7 +32,11 @@ public abstract class Civil implements Aircraft{
         this.planeName = planeName;
     }
 
-    protected void setAirClass(int airClass){
+    protected void setAirType(String type){
+        this.airType = type;
+    }
+
+    public void setAirClass(int airClass){
         this.airClass = airClass;
     }
 
@@ -45,6 +50,10 @@ public abstract class Civil implements Aircraft{
 
     public String getCountryName(){
         return this.countryName;
+    }
+
+    public String getAirType(){
+        return this.airType;
     }
 
     public int getAirClass(){

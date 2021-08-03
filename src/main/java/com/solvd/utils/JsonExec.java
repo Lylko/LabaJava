@@ -3,7 +3,6 @@ package com.solvd.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.runway.Airport;
-import com.solvd.runway.Runway;
 import org.apache.log4j.Logger;
 
 import java.io.File;

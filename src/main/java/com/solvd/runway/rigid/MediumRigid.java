@@ -5,7 +5,7 @@ import com.solvd.runway.Runway;
 public final class MediumRigid extends Runway {
 
     public MediumRigid(){
-        setRunwayType("MediumFlex");
+        setRunwayType("Medium rigid");
         setClassNum(80);
     }
 

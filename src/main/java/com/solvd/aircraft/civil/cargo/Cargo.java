@@ -11,6 +11,7 @@ public class Cargo extends Civil {
         setMaxLiftCap(155000);
         setCountryName("Solvd");
         setPlaneName("Example");
+        setAirType("Cargo");
     }
 
     public Cargo(int maxSpeed, String countryName, int maxLiftCap, String planeName){

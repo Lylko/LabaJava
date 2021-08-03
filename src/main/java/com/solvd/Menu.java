@@ -2,7 +2,6 @@ package com.solvd;
 
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
-import com.solvd.runway.rigid.HighRigid;
 import com.solvd.utils.JsonExec;
 import com.solvd.utils.Logging;
 import com.solvd.utils.PropertiesLoad;
@@ -21,7 +20,7 @@ public class Menu {
 
     public Menu() {
         airport = new Airport();
-        runwayMap = airport.getRunwayList();
+        runwayMap = airport.getRunwayMap();
     }
 
     public void showStartMenu(){
@@ -56,7 +55,7 @@ public class Menu {
                         if (Logging.isRightPassword()) {
                             runwayChoice = airport.chooseRunway();
                             if (!"error".equals(runwayChoice)) {
-                                runwayMap.get(runwayChoice).createAircraft();
+                                runwayMap.get(runwayChoice).createAircraft(runwayMap.get(runwayChoice));
                             } else {
                                 LOGGER.info("Try again later.");
                             }

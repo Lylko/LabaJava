@@ -24,6 +24,11 @@ public class Airport {
         runwaySet = new HashSet<>();
     }
 
+    public void addExternalRunway(Runway runway){
+        runwayMap.put(runway.getRunwayName(), runway);
+        addToSet(runway);
+    }
+
     public void addRunway(Runway runway){
         Scanner in = new Scanner(System.in);
 
@@ -39,12 +44,14 @@ public class Airport {
                     LOGGER.info("This name cannot be used. Please, try to put another.");
                 } else {
                     runwayMap.put(name, runway);
+                    runway.setRunwayName(name);
                     addToSet(runway);
                     i = 0;
                     LOGGER.info("Created new runway '" + runway.getRunwayType() + "'.");
                 }
             } else if (runwayMap != null) {
                 runwayMap.put(name, runway);
+                runway.setRunwayName(name);
                 addToSet(runway);
                 i = 0;
                 LOGGER.info("Created new runway '" + runway.getRunwayType() + "'.");
@@ -61,7 +68,11 @@ public class Airport {
 
     }
 
-    public Map<String,Runway> getRunwayList(){
+    public void setRunwayMap(Map<String,Runway> map){
+        this.runwayMap = map;
+    }
+
+    public Map<String,Runway> getRunwayMap(){
         return runwayMap;
     }
 

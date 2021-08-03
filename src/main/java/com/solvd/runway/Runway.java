@@ -1,5 +1,6 @@
 package com.solvd.runway;
 
+import com.solvd.utils.Connector;
 import com.solvd.aircraft.civil.Civil;
 import com.solvd.aircraft.civil.airliner.Airbus;
 import com.solvd.aircraft.civil.airliner.Trident;
@@ -14,16 +15,18 @@ import com.solvd.aircraft.military.bomber.Xian;
 import com.solvd.aircraft.military.stormtrooper.Buccaneer;
 import com.solvd.aircraft.military.stormtrooper.Dragonfly;
 import com.solvd.aircraft.military.stormtrooper.Skyhawk;
+import com.solvd.utils.DataOperations;
 import org.apache.log4j.Logger;
 
 import java.util.*;
 
-public abstract class Runway {
+public class Runway {
 
     private final static Logger LOGGER = Logger.getLogger(Runway.class);
 
     private String runwayType;
     private int classNum;
+    private String runwayName;
     private final double AIR_INDEX = 1.05;
     private List<Military> militaryList;
     private List<Civil> civilList;
@@ -53,11 +56,15 @@ public abstract class Runway {
         return result;
     }
 
-    protected void setClassNum(int classNum){
+    public void setClassNum(int classNum){
         this.classNum = classNum;
     }
 
-    protected void setRunwayType(String name){
+    public void setRunwayName(String name){
+        this.runwayName = name;
+    }
+
+    public void setRunwayType(String name){
         this.runwayType = name;
     }
 
@@ -65,12 +72,48 @@ public abstract class Runway {
         return runwayType;
     }
 
+    public String getRunwayName(){
+        return runwayName;
+    }
+
     public int getClassNum(){
         return this.classNum;
     }
 
-    public void addPlane(Civil plane){
+    public void addExternalPlane(Civil plane){
+
+        civilList.add(plane);
+
+        civilList.sort(new Comparator<>() {
+            @Override
+            public int compare(Civil o1, Civil o2) {
+                return o1.getPlaneName().compareTo(o2.getPlaneName());
+            }
+        });
+
+        LOGGER.info("Aircraft " + plane.getPlaneName() + " created.");
+
+    }
+
+    public void addExternalPlane(Military plane){
+
+        militaryList.add(plane);
+
+        militaryList.sort(new Comparator<>() {
+            @Override
+            public int compare(Military o1, Military o2) {
+                return o1.getPlaneName().compareTo(o2.getPlaneName());
+            }
+        });
+
+        LOGGER.info("Aircraft " + plane.getPlaneName() + " created.");
+
+    }
+
+
+    public void addPlane(Civil plane, Runway runway){
         if (isPrintAccess(plane)){
+            DataOperations.addTobd(runway, plane.getPlaneName());
             civilList.add(plane);
 
             civilList.sort(new Comparator<>() {
@@ -86,8 +129,9 @@ public abstract class Runway {
         }
     }
 
-    public void addPlane(Military plane){
+    public void addPlane(Military plane, Runway runway){
         if (isPrintAccess(plane)){
+            DataOperations.addTobd(runway, plane.getPlaneName());
             militaryList.add(plane);
 
             militaryList.sort(new Comparator<>() {
@@ -151,7 +195,7 @@ public abstract class Runway {
         }
     }
 
-    public void createAircraft(){
+    public void createAircraft(Runway runway){
         LOGGER.info("\n-----Creating new aircraft-----");
         Scanner in = new Scanner(System.in);
 
@@ -181,17 +225,17 @@ public abstract class Runway {
                             switch (cargoChoice) {
                                 case "0":
                                     Beluga beluga = new Beluga();
-                                    addPlane(beluga);
+                                    addPlane(beluga, runway);
                                     i = 1;
                                     break;
                                 case "1":
                                     Cossack cossack = new Cossack();
-                                    addPlane(cossack);
+                                    addPlane(cossack, runway);
                                     i = 1;
                                     break;
                                 case "2":
                                     Globemaster globe = new Globemaster();
-                                    addPlane(globe);
+                                    addPlane(globe, runway);
                                     i = 1;
                                     break;
                                 case "e":
@@ -216,17 +260,17 @@ public abstract class Runway {
                             switch (airlinerChoice) {
                                 case "0":
                                     Airbus airbus = new Airbus();
-                                    addPlane(airbus);
+                                    addPlane(airbus, runway);
                                     i = 1;
                                     break;
                                 case "1":
                                     Xiangfeng xiangfeng = new Xiangfeng();
-                                    addPlane(xiangfeng);
+                                    addPlane(xiangfeng, runway);
                                     i = 1;
                                     break;
                                 case "2":
                                     Trident trident = new Trident();
-                                    addPlane(trident);
+                                    addPlane(trident, runway);
                                     i = 1;
                                     break;
                                 case "e":
@@ -265,17 +309,17 @@ public abstract class Runway {
                             switch (bomberChoice) {
                                 case "0":
                                     Fencer fencer = new Fencer();
-                                    addPlane(fencer);
+                                    addPlane(fencer, runway);
                                     i = 1;
                                     break;
                                 case "1":
                                     Nighthawk nighthawk = new Nighthawk();
-                                    addPlane(nighthawk);
+                                    addPlane(nighthawk, runway);
                                     i = 1;
                                     break;
                                 case "2":
                                     Xian xian = new Xian();
-                                    addPlane(xian);
+                                    addPlane(xian, runway);
                                     i = 1;
                                     break;
                                 case "e":
@@ -300,17 +344,17 @@ public abstract class Runway {
                             switch (stormChoice) {
                                 case "0":
                                     Dragonfly dragon = new Dragonfly();
-                                    addPlane(dragon);
+                                    addPlane(dragon, runway);
                                     i = 1;
                                     break;
                                 case "1":
                                     Buccaneer buccaneer = new Buccaneer();
-                                    addPlane(buccaneer);
+                                    addPlane(buccaneer, runway);
                                     i = 1;
                                     break;
                                 case "2":
                                     Skyhawk skyhawk = new Skyhawk();
-                                    addPlane(skyhawk);
+                                    addPlane(skyhawk, runway);
                                     i = 1;
                                     break;
                                 case "e":

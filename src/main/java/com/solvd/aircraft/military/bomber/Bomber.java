@@ -12,6 +12,7 @@ public class Bomber extends Military {
         setCrewNum(2);
         setCountryName("Solvd");
         setPlaneName("Example");
+        setAirType("Bomber");
     }
 
     public Bomber(int maxSpeed, int maxHeight, String countryName, int crewNum, String planeName){

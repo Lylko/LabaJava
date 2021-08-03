@@ -9,6 +9,7 @@ public abstract class Military implements Aircraft {
     private String countryName;
     private String planeName;
     private int airClass;
+    private String airType;
 
     public Military(){
 
@@ -29,11 +30,15 @@ public abstract class Military implements Aircraft {
         this.maxHeight = maxHeight;
     }
 
+    protected void setAirType(String type){
+        this.airType = type;
+    }
+
     public void setCountryName(String countryName){
         this.countryName = countryName;
     }
 
-    protected void setAirClass(int airClass){
+    public void setAirClass(int airClass){
         this.airClass = airClass;
     }
 
@@ -55,6 +60,10 @@ public abstract class Military implements Aircraft {
 
     public String getCountryName(){
         return this.countryName;
+    }
+
+    public String getAirType(){
+        return this.airType;
     }
 
     public int getAirClass(){

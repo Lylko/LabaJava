@@ -5,7 +5,7 @@ import com.solvd.runway.Runway;
 public final class HighFlex extends Runway {
 
     public HighFlex(){
-        setRunwayType("HighFlex");
+        setRunwayType("High flex");
         setClassNum(15);
     }
 

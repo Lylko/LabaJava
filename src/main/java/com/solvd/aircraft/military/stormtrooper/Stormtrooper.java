@@ -12,6 +12,7 @@ public class Stormtrooper extends Military{
         setNumSuspPoints(8);
         setCountryName("Solvd");
         setPlaneName("Example");
+        setAirType("Stormtrooper");
     }
 
     public Stormtrooper(int maxSpeed, int maxHeight, String countryName, int suspensionPoint, String planeName){

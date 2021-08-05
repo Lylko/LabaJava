@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class DataOperations {
+public abstract class DataOperations {
 
     public static Airport loadRunway(Airport airport, String runwayName){
 

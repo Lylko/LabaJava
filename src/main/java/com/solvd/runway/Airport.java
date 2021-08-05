@@ -8,12 +8,9 @@ import com.solvd.runway.rigid.HighRigid;
 import com.solvd.runway.rigid.LowRigid;
 import com.solvd.runway.rigid.MediumRigid;
 import com.solvd.runway.rigid.ULowRigid;
-import com.solvd.utils.Connector;
-import com.solvd.utils.DataOperations;
+import com.solvd.database.DataOperations;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.*;
 
 public class Airport {

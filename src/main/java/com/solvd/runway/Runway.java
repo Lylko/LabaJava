@@ -112,7 +112,7 @@ public class Runway {
 
     public void addPlane(Civil plane, Runway runway){
         if (isPrintAccess(plane)){
-            DataOperations.addTobd(runway, plane.getPlaneName());
+            DataOperations.addToDB(runway, plane.getPlaneName());
             civilList.add(plane);
 
             civilList.sort(new Comparator<>() {
@@ -130,7 +130,7 @@ public class Runway {
 
     public void addPlane(Military plane, Runway runway){
         if (isPrintAccess(plane)){
-            DataOperations.addTobd(runway, plane.getPlaneName());
+            DataOperations.addToDB(runway, plane.getPlaneName());
             militaryList.add(plane);
 
             militaryList.sort(new Comparator<>() {

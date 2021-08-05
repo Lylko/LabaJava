@@ -1,6 +1,5 @@
 package com.solvd.runway;
 
-import com.solvd.utils.Connector;
 import com.solvd.aircraft.civil.Civil;
 import com.solvd.aircraft.civil.airliner.Airbus;
 import com.solvd.aircraft.civil.airliner.Trident;
@@ -15,7 +14,7 @@ import com.solvd.aircraft.military.bomber.Xian;
 import com.solvd.aircraft.military.stormtrooper.Buccaneer;
 import com.solvd.aircraft.military.stormtrooper.Dragonfly;
 import com.solvd.aircraft.military.stormtrooper.Skyhawk;
-import com.solvd.utils.DataOperations;
+import com.solvd.database.DataOperations;
 import org.apache.log4j.Logger;
 
 import java.util.*;

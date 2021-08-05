@@ -1,4 +1,4 @@
-package com.solvd.utils;
+package com.solvd.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

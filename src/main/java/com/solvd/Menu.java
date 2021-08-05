@@ -2,7 +2,7 @@ package com.solvd;
 
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
-import com.solvd.utils.DataOperations;
+import com.solvd.database.DataOperations;
 import com.solvd.utils.JsonExec;
 import com.solvd.utils.Logging;
 import com.solvd.utils.PropertiesLoad;

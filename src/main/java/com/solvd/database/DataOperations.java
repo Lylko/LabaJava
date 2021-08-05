@@ -1,9 +1,10 @@
-package com.solvd.utils;
+package com.solvd.database;
 
 import com.solvd.aircraft.civil.airliner.Airliner;
 import com.solvd.aircraft.civil.cargo.Cargo;
 import com.solvd.aircraft.military.bomber.Bomber;
 import com.solvd.aircraft.military.stormtrooper.Stormtrooper;
+import com.solvd.database.Connector;
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
 

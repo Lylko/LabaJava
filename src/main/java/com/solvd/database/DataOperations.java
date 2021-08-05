@@ -49,6 +49,7 @@ public abstract class DataOperations {
                 } else {
                     Bomber aircraft = new Bomber(rs.getString(2),rs.getString(3),
                             rs.getInt(4),rs.getInt(5),rs.getInt(6));
+                    runway.addExternalPlane(aircraft);
                 }
 
             }

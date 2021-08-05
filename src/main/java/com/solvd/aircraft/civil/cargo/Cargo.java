@@ -14,9 +14,9 @@ public class Cargo extends Civil {
         setAirType("Cargo");
     }
 
-    public Cargo(int maxSpeed, String countryName, int maxLiftCap, String planeName){
+    public Cargo(String planeName, String countryName, int maxSpeed, int airClass){
         super(maxSpeed, countryName, planeName);
-        this.maxLiftCap = maxLiftCap;
+        setAirClass(airClass);
     }
 
     public void setMaxLiftCap(int maxLiftCap){

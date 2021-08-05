@@ -43,21 +43,12 @@ public class DataOperations {
 
             while (rs.next()){
                 if ("Stormtrooper".equals(rs.getString(1))){
-                    Stormtrooper aircraft = new Stormtrooper();
-                    aircraft.setPlaneName(rs.getString(2));
-                    aircraft.setCountryName(rs.getString(3));
-                    aircraft.setMaxSpeed(rs.getInt(4));
-                    aircraft.setMaxHeight(rs.getInt(5));
-                    aircraft.setAirClass(rs.getInt(6));
+                    Stormtrooper aircraft = new Stormtrooper(rs.getString(2),rs.getString(3),
+                            rs.getInt(4),rs.getInt(5),rs.getInt(6));
                     runway.addExternalPlane(aircraft);
                 } else {
-                    Bomber aircraft = new Bomber();
-                    aircraft.setPlaneName(rs.getString(2));
-                    aircraft.setCountryName(rs.getString(3));
-                    aircraft.setMaxSpeed(rs.getInt(4));
-                    aircraft.setMaxHeight(rs.getInt(5));
-                    aircraft.setAirClass(rs.getInt(6));
-                    runway.addExternalPlane(aircraft);
+                    Bomber aircraft = new Bomber(rs.getString(2),rs.getString(3),
+                            rs.getInt(4),rs.getInt(5),rs.getInt(6));
                 }
 
             }
@@ -71,18 +62,12 @@ public class DataOperations {
 
             while (rs.next()){
                 if ("Cargo".equals(rs.getString(1))){
-                    Cargo aircraft = new Cargo();
-                    aircraft.setPlaneName(rs.getString(2));
-                    aircraft.setCountryName(rs.getString(3));
-                    aircraft.setMaxSpeed(rs.getInt(4));
-                    aircraft.setAirClass(rs.getInt(5));
+                    Cargo aircraft = new Cargo(rs.getString(2),rs.getString(3),
+                            rs.getInt(4),rs.getInt(5));
                     runway.addExternalPlane(aircraft);
                 } else {
-                    Airliner aircraft = new Airliner();
-                    aircraft.setPlaneName(rs.getString(2));
-                    aircraft.setCountryName(rs.getString(3));
-                    aircraft.setMaxSpeed(rs.getInt(4));
-                    aircraft.setAirClass(rs.getInt(5));
+                    Airliner aircraft = new Airliner(rs.getString(2),rs.getString(3),
+                            rs.getInt(4),rs.getInt(5));
                     runway.addExternalPlane(aircraft);
                 }
             }
@@ -178,7 +163,7 @@ public class DataOperations {
         return false;
     }
 
-    public static void addTobd(Runway runway, String aircraftName) {
+    public static void addToDB(Runway runway, String aircraftName) {
 
         Connection conn = Connector.connect();
 

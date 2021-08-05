@@ -16,9 +16,9 @@ public class Airliner extends Civil {
         setAirType("Airliner");
     }
 
-    public Airliner(int maxSpeed, String countryName, int passengerCap, String planeName){
+    public Airliner(String planeName, String countryName, int maxSpeed, int airClass){
         super(maxSpeed, countryName, planeName);
-        this.passengerCap = passengerCap;
+        setAirClass(airClass);
     }
 
     public void setPassengerCap(int passengerCap){

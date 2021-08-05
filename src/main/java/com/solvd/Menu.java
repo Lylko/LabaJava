@@ -42,7 +42,7 @@ public class Menu {
                         "\n1 - Create new runway,\n2 - Add aircraft to runway," +
                         "\n3 - Show created aircrafts,\n4 - Show available runways," +
                         "\n5 - Delete runway,\n6 - Show all available types of runway on this airport," +
-                        "\n7 - Add runway from data base,\n8 - Delete external runway,\ne - exit.");
+                        "\n7 - Add runway from database,\n8 - Delete external runway,\ne - exit.");
 
                 String choice = in.nextLine();
                 switch (choice) {

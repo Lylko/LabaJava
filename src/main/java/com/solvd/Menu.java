@@ -2,6 +2,7 @@ package com.solvd;
 
 import com.solvd.runway.Airport;
 import com.solvd.runway.Runway;
+import com.solvd.utils.DataOperations;
 import com.solvd.utils.JsonExec;
 import com.solvd.utils.Logging;
 import com.solvd.utils.PropertiesLoad;
@@ -41,7 +42,7 @@ public class Menu {
                         "\n1 - Create new runway,\n2 - Add aircraft to runway," +
                         "\n3 - Show created aircrafts,\n4 - Show available runways," +
                         "\n5 - Delete runway,\n6 - Show all available types of runway on this airport," +
-                        "\ne - exit.");
+                        "\n7 - Add runway from data base,\n8 - Delete external runway,\ne - exit.");
 
                 String choice = in.nextLine();
                 switch (choice) {
@@ -89,6 +90,14 @@ public class Menu {
                     case "6":
                         airport.printAllTypes();
                         i = checkExit();
+                        break;
+                    case "7":
+                        choice = DataOperations.chooseExternalRunway();
+                        airport = DataOperations.loadRunway(airport, choice);
+                        break;
+                    case "8":
+                        choice = DataOperations.chooseExternalRunway();
+                        DataOperations.removeExternalRunway(choice);
                         break;
                     case "e":
                         i = 0;

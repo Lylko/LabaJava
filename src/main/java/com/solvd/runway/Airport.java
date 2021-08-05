@@ -8,8 +8,12 @@ import com.solvd.runway.rigid.HighRigid;
 import com.solvd.runway.rigid.LowRigid;
 import com.solvd.runway.rigid.MediumRigid;
 import com.solvd.runway.rigid.ULowRigid;
+import com.solvd.utils.Connector;
+import com.solvd.utils.DataOperations;
 import org.apache.log4j.Logger;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.*;
 
 public class Airport {
@@ -38,7 +42,7 @@ public class Airport {
             String name = in.nextLine();
 
             if ((runwayMap != null) && (runwayMap.size() > 0)) {
-                if (runwayMap.containsKey(name)) {
+                if (runwayMap.containsKey(name) || DataOperations.isRunwayExist(name)) {
                     LOGGER.info("This name already exist. Please, try to put another.");
                 } else if ("error".equals(name)){
                     LOGGER.info("This name cannot be used. Please, try to put another.");
@@ -50,11 +54,15 @@ public class Airport {
                     LOGGER.info("Created new runway '" + runway.getRunwayType() + "'.");
                 }
             } else if (runwayMap != null) {
-                runwayMap.put(name, runway);
-                runway.setRunwayName(name);
-                addToSet(runway);
-                i = 0;
-                LOGGER.info("Created new runway '" + runway.getRunwayType() + "'.");
+                if (DataOperations.isRunwayExist(name)){
+                    LOGGER.info("This name already exist. Please, try to put another.");
+                } else {
+                    runwayMap.put(name, runway);
+                    runway.setRunwayName(name);
+                    addToSet(runway);
+                    i = 0;
+                    LOGGER.info("Created new runway '" + runway.getRunwayType() + "'.");
+                }
             } else {
                 LOGGER.info("Runway list doesnt exist.");
             }
@@ -80,6 +88,7 @@ public class Airport {
         if ( (runwayMap != null) && (runwayMap.size() > 1) ){
             runwayMap.remove(name);
             LOGGER.info(name + " successfully deleted.\n");
+
         } else if (runwayMap != null){
             LOGGER.info("\nYou need to have more than 1 runway to make this operation.\n");
         } else {

@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class DataOperations {
 
-    public static void loadRunway(Airport airport, String runwayName){
+    public static Airport loadRunway(Airport airport, String runwayName){
 
         Connection conn = Connector.connect();
         try {
@@ -43,6 +43,7 @@ public class DataOperations {
             while (rs.next()){
                 if ("Stormtrooper".equals(rs.getString(1))){
                     Stormtrooper aircraft = new Stormtrooper();
+                    aircraft.setPlaneName(rs.getString(2));
                     aircraft.setCountryName(rs.getString(3));
                     aircraft.setMaxSpeed(rs.getInt(4));
                     aircraft.setMaxHeight(rs.getInt(5));
@@ -50,6 +51,7 @@ public class DataOperations {
                     runway.addExternalPlane(aircraft);
                 } else {
                     Bomber aircraft = new Bomber();
+                    aircraft.setPlaneName(rs.getString(2));
                     aircraft.setCountryName(rs.getString(3));
                     aircraft.setMaxSpeed(rs.getInt(4));
                     aircraft.setMaxHeight(rs.getInt(5));
@@ -69,12 +71,14 @@ public class DataOperations {
             while (rs.next()){
                 if ("Cargo".equals(rs.getString(1))){
                     Cargo aircraft = new Cargo();
+                    aircraft.setPlaneName(rs.getString(2));
                     aircraft.setCountryName(rs.getString(3));
                     aircraft.setMaxSpeed(rs.getInt(4));
                     aircraft.setAirClass(rs.getInt(5));
                     runway.addExternalPlane(aircraft);
                 } else {
                     Airliner aircraft = new Airliner();
+                    aircraft.setPlaneName(rs.getString(2));
                     aircraft.setCountryName(rs.getString(3));
                     aircraft.setMaxSpeed(rs.getInt(4));
                     aircraft.setAirClass(rs.getInt(5));
@@ -84,14 +88,19 @@ public class DataOperations {
 
             airport.addExternalRunway(runway);
 
+            return airport;
+
 
         } catch (SQLException ex){
             System.out.println(ex.getMessage());
         }
 
+        System.out.println("Something going wrong. No changes.");
+        return airport;
+
     }
 
-    public static void chooseExternalRunway(Airport airport){
+    public static String chooseExternalRunway(){
 
         Connection conn = Connector.connect();
         int i = 3;
@@ -116,7 +125,7 @@ public class DataOperations {
                 if (count >= 1){
                     i = 0;
                     System.out.println("Runway exist! Downloading runway details.");
-                    loadRunway(airport, choice);
+                    return choice;
                 } else {
                     System.out.println("Incorrect runway name! Please, try again.");
                     i--;
@@ -129,6 +138,43 @@ public class DataOperations {
 
         }
 
+        System.out.println("Something going wrong. No changes.");
+        return "error";
+
+    }
+
+    public static void removeExternalRunway(String name){
+        Connection conn = Connector.connect();
+        System.out.println("Runway exist! Enter name of this runway to confirm removing.");
+        Scanner in = new Scanner(System.in);
+        String confirm = in.nextLine();
+        if (name.equals(confirm)) {
+            try {
+                PreparedStatement pst = conn.prepareStatement("DELETE FROM based_aircrafts" +
+                        " WHERE runway_name = '" + name + "'");
+                pst.executeQuery();
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
+    public static boolean isRunwayExist(String name){
+        Connection conn = Connector.connect();
+
+        try{
+            PreparedStatement pst = conn.prepareStatement("SELECT DISTINCT COUNT(id) FROM " +
+                    "based_aircrafts WHERE runway_name = '" + name + "'");
+            ResultSet rs = pst.executeQuery();
+            int count = 0;
+            while (rs.next()){
+                count = rs.getInt(1);
+            }
+            return count>=1;
+        } catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
 
     public static void addTobd(Runway runway, String aircraftName) {
